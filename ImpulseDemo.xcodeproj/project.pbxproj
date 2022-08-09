@@ -73,10 +73,10 @@
 		5F48C5FF28A2DE6700F316E1 /* ImpulseDemo */ = {
 			isa = PBXGroup;
 			children = (
-				5F48C61D28A2E72300F316E1 /* UI Components */,
 				5F48C61428A2E47A00F316E1 /* Flow */,
-				5F48C61528A2E48700F316E1 /* System Files */,
+				5F48C61D28A2E72300F316E1 /* UI Components */,
 				5F48C61628A2E51800F316E1 /* Resources */,
+				5F48C61528A2E48700F316E1 /* System Files */,
 			);
 			path = ImpulseDemo;
 			sourceTree = "<group>";
