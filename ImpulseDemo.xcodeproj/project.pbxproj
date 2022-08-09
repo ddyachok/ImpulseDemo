@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		5F48C60128A2DE6700F316E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C60028A2DE6700F316E1 /* AppDelegate.swift */; };
 		5F48C60328A2DE6700F316E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C60228A2DE6700F316E1 /* SceneDelegate.swift */; };
-		5F48C60528A2DE6700F316E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C60428A2DE6700F316E1 /* ViewController.swift */; };
+		5F48C60528A2DE6700F316E1 /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C60428A2DE6700F316E1 /* InitialController.swift */; };
 		5F48C60A28A2DE6A00F316E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C60928A2DE6A00F316E1 /* Assets.xcassets */; };
 		5F48C60D28A2DE6A00F316E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C60B28A2DE6A00F316E1 /* LaunchScreen.storyboard */; };
+		5F48C61A28A2E55000F316E1 /* UIColor+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C61928A2E55000F316E1 /* UIColor+Identifier.swift */; };
+		5F48C61C28A2E57100F316E1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C61B28A2E57100F316E1 /* Colors.xcassets */; };
+		5F48C61F28A2E8D600F316E1 /* UIImage+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C61E28A2E8D600F316E1 /* UIImage+Identifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5F48C5FD28A2DE6700F316E1 /* ImpulseDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpulseDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F48C60028A2DE6700F316E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F48C60228A2DE6700F316E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5F48C60428A2DE6700F316E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5F48C60428A2DE6700F316E1 /* InitialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialController.swift; sourceTree = "<group>"; };
 		5F48C60928A2DE6A00F316E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F48C60C28A2DE6A00F316E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F48C60E28A2DE6A00F316E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F48C61928A2E55000F316E1 /* UIColor+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Identifier.swift"; sourceTree = "<group>"; };
+		5F48C61B28A2E57100F316E1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		5F48C61E28A2E8D600F316E1 /* UIImage+Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Identifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,65 @@
 		5F48C5FF28A2DE6700F316E1 /* ImpulseDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5F48C61D28A2E72300F316E1 /* UI Components */,
+				5F48C61428A2E47A00F316E1 /* Flow */,
+				5F48C61528A2E48700F316E1 /* System Files */,
+				5F48C61628A2E51800F316E1 /* Resources */,
+			);
+			path = ImpulseDemo;
+			sourceTree = "<group>";
+		};
+		5F48C61428A2E47A00F316E1 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C60428A2DE6700F316E1 /* InitialController.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		5F48C61528A2E48700F316E1 /* System Files */ = {
+			isa = PBXGroup;
+			children = (
 				5F48C60028A2DE6700F316E1 /* AppDelegate.swift */,
 				5F48C60228A2DE6700F316E1 /* SceneDelegate.swift */,
-				5F48C60428A2DE6700F316E1 /* ViewController.swift */,
-				5F48C60928A2DE6A00F316E1 /* Assets.xcassets */,
 				5F48C60B28A2DE6A00F316E1 /* LaunchScreen.storyboard */,
 				5F48C60E28A2DE6A00F316E1 /* Info.plist */,
 			);
-			path = ImpulseDemo;
+			path = "System Files";
+			sourceTree = "<group>";
+		};
+		5F48C61628A2E51800F316E1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C61828A2E53F00F316E1 /* Colors */,
+				5F48C61728A2E53900F316E1 /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5F48C61728A2E53900F316E1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C60928A2DE6A00F316E1 /* Assets.xcassets */,
+				5F48C61E28A2E8D600F316E1 /* UIImage+Identifier.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		5F48C61828A2E53F00F316E1 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C61B28A2E57100F316E1 /* Colors.xcassets */,
+				5F48C61928A2E55000F316E1 /* UIColor+Identifier.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		5F48C61D28A2E72300F316E1 /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UI Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F48C61C28A2E57100F316E1 /* Colors.xcassets in Resources */,
 				5F48C60D28A2DE6A00F316E1 /* LaunchScreen.storyboard in Resources */,
 				5F48C60A28A2DE6A00F316E1 /* Assets.xcassets in Resources */,
 			);
@@ -134,9 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F48C60528A2DE6700F316E1 /* ViewController.swift in Sources */,
+				5F48C60528A2DE6700F316E1 /* InitialController.swift in Sources */,
+				5F48C61A28A2E55000F316E1 /* UIColor+Identifier.swift in Sources */,
 				5F48C60128A2DE6700F316E1 /* AppDelegate.swift in Sources */,
 				5F48C60328A2DE6700F316E1 /* SceneDelegate.swift in Sources */,
+				5F48C61F28A2E8D600F316E1 /* UIImage+Identifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
