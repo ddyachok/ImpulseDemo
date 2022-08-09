@@ -15,6 +15,11 @@
 		5F48C61A28A2E55000F316E1 /* UIColor+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C61928A2E55000F316E1 /* UIColor+Identifier.swift */; };
 		5F48C61C28A2E57100F316E1 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C61B28A2E57100F316E1 /* Colors.xcassets */; };
 		5F48C61F28A2E8D600F316E1 /* UIImage+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C61E28A2E8D600F316E1 /* UIImage+Identifier.swift */; };
+		5F48C62228A2EB3F00F316E1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C62128A2EB3F00F316E1 /* PrimaryButton.swift */; };
+		5F48C62528A2EF9100F316E1 /* ButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C62428A2EF9100F316E1 /* ButtonState.swift */; };
+		5F48C62828A2F10500F316E1 /* UIFont+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C62728A2F10500F316E1 /* UIFont+Type.swift */; };
+		5F48C62A28A2F12600F316E1 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C62928A2F12600F316E1 /* FontType.swift */; };
+		5F48C63228A2F48A00F316E1 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C63128A2F48A00F316E1 /* OnboardingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,14 @@
 		5F48C61928A2E55000F316E1 /* UIColor+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Identifier.swift"; sourceTree = "<group>"; };
 		5F48C61B28A2E57100F316E1 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		5F48C61E28A2E8D600F316E1 /* UIImage+Identifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Identifier.swift"; sourceTree = "<group>"; };
+		5F48C62128A2EB3F00F316E1 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		5F48C62428A2EF9100F316E1 /* ButtonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonState.swift; sourceTree = "<group>"; };
+		5F48C62728A2F10500F316E1 /* UIFont+Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Type.swift"; sourceTree = "<group>"; };
+		5F48C62928A2F12600F316E1 /* FontType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontType.swift; sourceTree = "<group>"; };
+		5F48C62C28A2F2B600F316E1 /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
+		5F48C62D28A2F2C100F316E1 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
+		5F48C63128A2F48A00F316E1 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		5F48C63328A2F94D00F316E1 /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +84,7 @@
 		5F48C61428A2E47A00F316E1 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				5F48C63028A2F47D00F316E1 /* Onboarding */,
 				5F48C60428A2DE6700F316E1 /* InitialController.swift */,
 			);
 			path = Flow;
@@ -90,6 +104,7 @@
 		5F48C61628A2E51800F316E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5F48C62628A2F0E100F316E1 /* Fonts */,
 				5F48C61828A2E53F00F316E1 /* Colors */,
 				5F48C61728A2E53900F316E1 /* Assets */,
 			);
@@ -117,8 +132,70 @@
 		5F48C61D28A2E72300F316E1 /* UI Components */ = {
 			isa = PBXGroup;
 			children = (
+				5F48C62028A2EB1900F316E1 /* Buttons */,
 			);
 			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		5F48C62028A2EB1900F316E1 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C62328A2EF8300F316E1 /* Helpers */,
+				5F48C62128A2EB3F00F316E1 /* PrimaryButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		5F48C62328A2EF8300F316E1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C62428A2EF9100F316E1 /* ButtonState.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5F48C62628A2F0E100F316E1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C62F28A2F2D000F316E1 /* Families */,
+				5F48C62B28A2F17600F316E1 /* Extensions */,
+				5F48C62928A2F12600F316E1 /* FontType.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5F48C62B28A2F17600F316E1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C62728A2F10500F316E1 /* UIFont+Type.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5F48C62E28A2F2C400F316E1 /* Inter */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C62C28A2F2B600F316E1 /* Inter-Bold.otf */,
+				5F48C63328A2F94D00F316E1 /* Inter-SemiBold.otf */,
+				5F48C62D28A2F2C100F316E1 /* Inter-Regular.otf */,
+			);
+			path = Inter;
+			sourceTree = "<group>";
+		};
+		5F48C62F28A2F2D000F316E1 /* Families */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C62E28A2F2C400F316E1 /* Inter */,
+			);
+			path = Families;
+			sourceTree = "<group>";
+		};
+		5F48C63028A2F47D00F316E1 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C63128A2F48A00F316E1 /* OnboardingController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,10 +269,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F48C62828A2F10500F316E1 /* UIFont+Type.swift in Sources */,
+				5F48C62228A2EB3F00F316E1 /* PrimaryButton.swift in Sources */,
 				5F48C60528A2DE6700F316E1 /* InitialController.swift in Sources */,
+				5F48C62A28A2F12600F316E1 /* FontType.swift in Sources */,
+				5F48C62528A2EF9100F316E1 /* ButtonState.swift in Sources */,
 				5F48C61A28A2E55000F316E1 /* UIColor+Identifier.swift in Sources */,
 				5F48C60128A2DE6700F316E1 /* AppDelegate.swift in Sources */,
 				5F48C60328A2DE6700F316E1 /* SceneDelegate.swift in Sources */,
+				5F48C63228A2F48A00F316E1 /* OnboardingController.swift in Sources */,
 				5F48C61F28A2E8D600F316E1 /* UIImage+Identifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
