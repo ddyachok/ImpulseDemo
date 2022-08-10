@@ -15,7 +15,7 @@ final class PrimaryButton: UIButton {
 
     // MARK: - Initializers
 
-    init(title: String, state: ButtonState = .enabled) {
+    init(title: String, state: ButtonState = .enabled, type: UIButton.ButtonType = .system) {
         super.init(frame: .zero)
         self.buttonState = state
         setTitle(title, for: .normal)
@@ -42,6 +42,15 @@ final class PrimaryButton: UIButton {
         case .disabled:
             alpha = 0.4
         }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+
+        UIView.animate(withDuration: 0.25, animations: {
+            self.transform = CGAffineTransform.identity
+        }, completion: nil)
     }
 
     override func layoutSubviews() {

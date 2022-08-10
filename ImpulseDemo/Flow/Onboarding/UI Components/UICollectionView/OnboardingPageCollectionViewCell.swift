@@ -92,7 +92,6 @@ class OnboardingPageCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(descriptionLabel)
         descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 28).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -28).isActive = true
-//        descriptionLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 12).isActive = true
     }
 }
