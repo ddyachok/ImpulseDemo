@@ -12,6 +12,7 @@ enum ColorIdentifier: String {
     case backgroundSecondary = "backgroundSecondary"
     case contentAccent = "contentAccent"
     case contentPrimary = "contentPrimary"
+    case pageControlTint = "pageControlTint"
 }
 
 extension UIColor {

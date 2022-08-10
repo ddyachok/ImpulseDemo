@@ -33,8 +33,8 @@ final class PrimaryButton: UIButton {
         layer.cornerRadius = 10
         clipsToBounds = true
         backgroundColor = UIColor(.contentAccent)
-        tintColor = UIColor(.contentPrimary)
-        titleLabel?.font = UIFont(name: .semibold, size: 16)
+        setTitleColor(UIColor(.contentPrimary), for: .normal)
+        titleLabel?.font = UIFont(type: .interSemibold, size: 16)
         
         switch state {
         case .enabled:

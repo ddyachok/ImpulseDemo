@@ -20,6 +20,15 @@
 		5F48C62828A2F10500F316E1 /* UIFont+Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C62728A2F10500F316E1 /* UIFont+Type.swift */; };
 		5F48C62A28A2F12600F316E1 /* FontType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C62928A2F12600F316E1 /* FontType.swift */; };
 		5F48C63228A2F48A00F316E1 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C63128A2F48A00F316E1 /* OnboardingController.swift */; };
+		5F48C63B28A3F4ED00F316E1 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C63A28A3F4ED00F316E1 /* OnboardingPage.swift */; };
+		5F48C63E28A3F53000F316E1 /* OnboardingPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C63D28A3F53000F316E1 /* OnboardingPageCollectionViewCell.swift */; };
+		5F48C64028A3F6A300F316E1 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C63F28A3F6A300F316E1 /* OnboardingPresenter.swift */; };
+		5F48C64428A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C64328A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift */; };
+		5F48C64828A3FC2700F316E1 /* UICollectionView+ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C64728A3FC2700F316E1 /* UICollectionView+ReusableCell.swift */; };
+		5F48C64B28A3FDCC00F316E1 /* IndexPath+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */; };
+		5F48C64C28A41A8500F316E1 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C62C28A2F2B600F316E1 /* Inter-Bold.otf */; };
+		5F48C64D28A41A8700F316E1 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C63328A2F94D00F316E1 /* Inter-SemiBold.otf */; };
+		5F48C64E28A41A8A00F316E1 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C62D28A2F2C100F316E1 /* Inter-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +50,12 @@
 		5F48C62D28A2F2C100F316E1 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
 		5F48C63128A2F48A00F316E1 /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
 		5F48C63328A2F94D00F316E1 /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
+		5F48C63A28A3F4ED00F316E1 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
+		5F48C63D28A3F53000F316E1 /* OnboardingPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageCollectionViewCell.swift; sourceTree = "<group>"; };
+		5F48C63F28A3F6A300F316E1 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
+		5F48C64328A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+ReuseID.swift"; sourceTree = "<group>"; };
+		5F48C64728A3FC2700F316E1 /* UICollectionView+ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReusableCell.swift"; sourceTree = "<group>"; };
+		5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Range.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +90,7 @@
 			children = (
 				5F48C61428A2E47A00F316E1 /* Flow */,
 				5F48C61D28A2E72300F316E1 /* UI Components */,
+				5F48C64128A3FBE700F316E1 /* Extensions */,
 				5F48C61628A2E51800F316E1 /* Resources */,
 				5F48C61528A2E48700F316E1 /* System Files */,
 			);
@@ -193,9 +209,54 @@
 		5F48C63028A2F47D00F316E1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				5F48C63928A3F47300F316E1 /* UI Components */,
 				5F48C63128A2F48A00F316E1 /* OnboardingController.swift */,
+				5F48C63F28A3F6A300F316E1 /* OnboardingPresenter.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		5F48C63928A3F47300F316E1 /* UI Components */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C63C28A3F51500F316E1 /* UICollectionView */,
+				5F48C63A28A3F4ED00F316E1 /* OnboardingPage.swift */,
+			);
+			path = "UI Components";
+			sourceTree = "<group>";
+		};
+		5F48C63C28A3F51500F316E1 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C63D28A3F53000F316E1 /* OnboardingPageCollectionViewCell.swift */,
+			);
+			path = UICollectionView;
+			sourceTree = "<group>";
+		};
+		5F48C64128A3FBE700F316E1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C64928A3FDC000F316E1 /* Foundation */,
+				5F48C64228A3FBEF00F316E1 /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5F48C64228A3FBEF00F316E1 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C64328A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift */,
+				5F48C64728A3FC2700F316E1 /* UICollectionView+ReusableCell.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		5F48C64928A3FDC000F316E1 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +318,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F48C61C28A2E57100F316E1 /* Colors.xcassets in Resources */,
+				5F48C64E28A41A8A00F316E1 /* Inter-Regular.otf in Resources */,
+				5F48C64C28A41A8500F316E1 /* Inter-Bold.otf in Resources */,
 				5F48C60D28A2DE6A00F316E1 /* LaunchScreen.storyboard in Resources */,
+				5F48C64D28A41A8700F316E1 /* Inter-SemiBold.otf in Resources */,
 				5F48C60A28A2DE6A00F316E1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,12 +335,18 @@
 			files = (
 				5F48C62828A2F10500F316E1 /* UIFont+Type.swift in Sources */,
 				5F48C62228A2EB3F00F316E1 /* PrimaryButton.swift in Sources */,
+				5F48C64428A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift in Sources */,
 				5F48C60528A2DE6700F316E1 /* InitialController.swift in Sources */,
 				5F48C62A28A2F12600F316E1 /* FontType.swift in Sources */,
 				5F48C62528A2EF9100F316E1 /* ButtonState.swift in Sources */,
+				5F48C63B28A3F4ED00F316E1 /* OnboardingPage.swift in Sources */,
+				5F48C64028A3F6A300F316E1 /* OnboardingPresenter.swift in Sources */,
 				5F48C61A28A2E55000F316E1 /* UIColor+Identifier.swift in Sources */,
+				5F48C64828A3FC2700F316E1 /* UICollectionView+ReusableCell.swift in Sources */,
 				5F48C60128A2DE6700F316E1 /* AppDelegate.swift in Sources */,
+				5F48C63E28A3F53000F316E1 /* OnboardingPageCollectionViewCell.swift in Sources */,
 				5F48C60328A2DE6700F316E1 /* SceneDelegate.swift in Sources */,
+				5F48C64B28A3FDCC00F316E1 /* IndexPath+Range.swift in Sources */,
 				5F48C63228A2F48A00F316E1 /* OnboardingController.swift in Sources */,
 				5F48C61F28A2E8D600F316E1 /* UIImage+Identifier.swift in Sources */,
 			);
@@ -423,10 +493,9 @@
 				INFOPLIST_FILE = ImpulseDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,10 +520,9 @@
 				INFOPLIST_FILE = ImpulseDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

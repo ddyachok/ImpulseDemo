@@ -22,7 +22,9 @@ class InitialController: UIViewController {
     // MARK: - Actions
 
     @objc private func presentOnboardingScreen() {
-        let controller = OnboardingController()
+        startButton.buttonState = .disabled
+        let presenter = OnboardingPresenter()
+        let controller = OnboardingController(presenter: presenter)
         controller.modalPresentationStyle = .fullScreen
         navigationController?.present(controller, animated: true, completion: nil)
     }
@@ -32,7 +34,7 @@ class InitialController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        configureStartButton()
+        configureUIElements()
     }
 
     // MARK: - Configuration Methods
@@ -41,11 +43,16 @@ class InitialController: UIViewController {
         view.backgroundColor = UIColor(.backgroundPrimary)
     }
 
+    private func configureUIElements() {
+        configureStartButton()
+    }
+
     private func configureStartButton() {
         view.addSubview(startButton)
         startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         startButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         startButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        startButton.widthAnchor.constraint(equalToConstant: 244).isActive = true
+        startButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 65).isActive = true
+        startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -65).isActive = true
     }
 }

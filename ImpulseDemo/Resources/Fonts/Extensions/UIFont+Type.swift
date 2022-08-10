@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIFont {
-    convenience init?(name type: FontType, size fontSize: CGFloat) {
+    convenience init?(type: FontType, size fontSize: CGFloat) {
         self.init(name: type.weight, size: fontSize)
     }
 }
