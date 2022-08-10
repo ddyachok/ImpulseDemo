@@ -48,9 +48,9 @@ final class PrimaryButton: UIButton {
         super.touchesBegan(touches, with: event)
         self.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
 
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: 0.25) {
             self.transform = CGAffineTransform.identity
-        }, completion: nil)
+        }
     }
 
     override func layoutSubviews() {
