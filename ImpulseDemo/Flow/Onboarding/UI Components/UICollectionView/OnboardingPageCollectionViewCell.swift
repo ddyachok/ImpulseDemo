@@ -28,7 +28,6 @@ class OnboardingPageCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(.contentPrimary)
         label.font = UIFont(type: .interBold, size: 28)
-//        label.font = UIFont(name: "Inter-Bold", size: 28)
         label.textAlignment = .center
         return label
     }()
@@ -38,6 +37,7 @@ class OnboardingPageCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(.contentPrimary)
         label.font = UIFont(type: .interRegular, size: 16)
+        label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
@@ -52,6 +52,10 @@ class OnboardingPageCollectionViewCell: UICollectionViewCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureUIElements()
+    }
+
+    override func prepareForReuse() {
         configureUIElements()
     }
 
@@ -88,34 +92,7 @@ class OnboardingPageCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(descriptionLabel)
         descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 28).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -28).isActive = true
-        descriptionLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
+//        descriptionLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 12).isActive = true
-    }
-
-//        let topImageContainerView = UIView()
-//        contentView.addSubview(topImageContainerView)
-//        topImageContainerView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        topImageContainerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-//
-//        topImageContainerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-//        topImageContainerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-//
-//        topImageContainerView.addSubview(defaultImageView)
-//        defaultImageView.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor).isActive = true
-//        defaultImageView.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor).isActive = true
-//        defaultImageView.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.5).isActive = true
-//
-//        topImageContainerView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5).isActive = true
-//
-//        contentView.addSubview(descriptionTextView)
-//        descriptionTextView.topAnchor.constraint(equalTo: topImageContainerView.bottomAnchor).isActive = true
-//        descriptionTextView.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
-//        descriptionTextView.rightAnchor.constraint(equalTo: rightAnchor, constant: -24).isActive = true
-//        descriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
-//    }
-
-    override func prepareForReuse() {
-        configureUIElements()
     }
 }
