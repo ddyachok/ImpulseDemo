@@ -152,7 +152,7 @@ extension OnboardingController: UICollectionViewDelegate, UICollectionViewDataSo
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetX = scrollView.contentOffset.x
         let collectionViewWidth = pagesCollectionView.contentSize.width - scrollView.frame.size.width
-        let didReachEnd = offsetX > (collectionViewWidth - view.frame.width)
+        let didReachEnd = offsetX > (collectionViewWidth - view.frame.width / 1.6)
 
         guard didReachEnd else {
             bottomButton.setTitle("Next", for: .normal)
