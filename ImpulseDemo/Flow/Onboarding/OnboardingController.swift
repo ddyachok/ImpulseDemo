@@ -45,13 +45,12 @@ class OnboardingController: UIViewController {
 
     private let bottomButton: PrimaryButton = {
         let button = PrimaryButton(title: "Next")
-        button.addTarget(self, action: #selector(presentTimerScreen), for: .touchUpInside)
         return button
     }()
 
     // MARK: - Actions
 
-    @objc private func nextButtonTapped() {
+    @objc private func showNextOnboardingScreen() {
         let nextIndex = min(pageControl.currentPage + 1, presenter.numberOfPages - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
         pageControl.currentPage = nextIndex
@@ -103,6 +102,7 @@ class OnboardingController: UIViewController {
         bottomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
         bottomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         bottomButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
+        bottomButton.addTarget(self, action: #selector(showNextOnboardingScreen), for: .touchUpInside)
     }
 
     private func configurePageControl() {
@@ -154,16 +154,15 @@ extension OnboardingController: UICollectionViewDelegate, UICollectionViewDataSo
         let collectionViewWidth = pagesCollectionView.contentSize.width - scrollView.frame.size.width
         let didReachEnd = offsetX > (collectionViewWidth - view.frame.width)
 
-        // TODO: - make this shit work
         guard didReachEnd else {
             bottomButton.setTitle("Next", for: .normal)
-            bottomButton.addTarget(bottomButton, action: #selector(nextButtonTapped), for: .touchUpInside)
-            bottomButton.removeTarget(bottomButton, action: #selector(presentTimerScreen), for: .touchUpInside)
+            bottomButton.removeTarget(self, action: #selector(presentTimerScreen), for: .touchUpInside)
+            bottomButton.addTarget(self, action: #selector(showNextOnboardingScreen), for: .touchUpInside)
             return
         }
 
         bottomButton.setTitle("Continue", for: .normal)
-        bottomButton.addTarget(bottomButton, action: #selector(presentTimerScreen), for: .touchUpInside)
-        bottomButton.removeTarget(bottomButton, action: #selector(nextButtonTapped), for: .touchUpInside)
+        bottomButton.removeTarget(self, action: #selector(showNextOnboardingScreen), for: .touchUpInside)
+        bottomButton.addTarget(self, action: #selector(presentTimerScreen), for: .touchUpInside)
     }
 }
