@@ -30,6 +30,12 @@
 		5F48C64D28A41A8700F316E1 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C63328A2F94D00F316E1 /* Inter-SemiBold.otf */; };
 		5F48C64E28A41A8A00F316E1 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C62D28A2F2C100F316E1 /* Inter-Regular.otf */; };
 		5F48C65228A4445100F316E1 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C65128A4445100F316E1 /* TimerController.swift */; };
+		5F97C9E328A57A4E00F130F6 /* Date+Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9E228A57A4E00F130F6 /* Date+Timer.swift */; };
+		5F97C9E528A57C2500F130F6 /* Int+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9E428A57C2500F130F6 /* Int+Time.swift */; };
+		5F97C9E928A58AAE00F130F6 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9E828A58AAE00F130F6 /* UserDefaultsKeys.swift */; };
+		5F97C9EB28A58C3D00F130F6 /* TimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9EA28A58C3D00F130F6 /* TimerPresenter.swift */; };
+		5F97C9EF28A58F9000F130F6 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9EE28A58F9000F130F6 /* AlertType.swift */; };
+		5F97C9F128A58FCF00F130F6 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9F028A58FCF00F130F6 /* UIViewController+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +64,12 @@
 		5F48C64728A3FC2700F316E1 /* UICollectionView+ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReusableCell.swift"; sourceTree = "<group>"; };
 		5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Range.swift"; sourceTree = "<group>"; };
 		5F48C65128A4445100F316E1 /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
+		5F97C9E228A57A4E00F130F6 /* Date+Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Timer.swift"; sourceTree = "<group>"; };
+		5F97C9E428A57C2500F130F6 /* Int+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Time.swift"; sourceTree = "<group>"; };
+		5F97C9E828A58AAE00F130F6 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		5F97C9EA28A58C3D00F130F6 /* TimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenter.swift; sourceTree = "<group>"; };
+		5F97C9EE28A58F9000F130F6 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
+		5F97C9F028A58FCF00F130F6 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +105,7 @@
 				5F48C61428A2E47A00F316E1 /* Flow */,
 				5F48C61D28A2E72300F316E1 /* UI Components */,
 				5F48C64128A3FBE700F316E1 /* Extensions */,
+				5F97C9E628A58A9500F130F6 /* Helprs */,
 				5F48C61628A2E51800F316E1 /* Resources */,
 				5F48C61528A2E48700F316E1 /* System Files */,
 			);
@@ -250,6 +263,7 @@
 			children = (
 				5F48C64328A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift */,
 				5F48C64728A3FC2700F316E1 /* UICollectionView+ReusableCell.swift */,
+				5F97C9F028A58FCF00F130F6 /* UIViewController+Alert.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -258,6 +272,8 @@
 			isa = PBXGroup;
 			children = (
 				5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */,
+				5F97C9E228A57A4E00F130F6 /* Date+Timer.swift */,
+				5F97C9E428A57C2500F130F6 /* Int+Time.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -266,8 +282,42 @@
 			isa = PBXGroup;
 			children = (
 				5F48C65128A4445100F316E1 /* TimerController.swift */,
+				5F97C9EA28A58C3D00F130F6 /* TimerPresenter.swift */,
 			);
 			path = Timer;
+			sourceTree = "<group>";
+		};
+		5F97C9E628A58A9500F130F6 /* Helprs */ = {
+			isa = PBXGroup;
+			children = (
+				5F97C9EC28A58F8200F130F6 /* UI */,
+				5F97C9E728A58AA200F130F6 /* NSUserDefaults */,
+			);
+			path = Helprs;
+			sourceTree = "<group>";
+		};
+		5F97C9E728A58AA200F130F6 /* NSUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				5F97C9E828A58AAE00F130F6 /* UserDefaultsKeys.swift */,
+			);
+			path = NSUserDefaults;
+			sourceTree = "<group>";
+		};
+		5F97C9EC28A58F8200F130F6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5F97C9ED28A58F8400F130F6 /* Alert */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		5F97C9ED28A58F8400F130F6 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				5F97C9EE28A58F9000F130F6 /* AlertType.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,19 +395,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F48C62828A2F10500F316E1 /* UIFont+Type.swift in Sources */,
+				5F97C9E528A57C2500F130F6 /* Int+Time.swift in Sources */,
 				5F48C62228A2EB3F00F316E1 /* PrimaryButton.swift in Sources */,
 				5F48C64428A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift in Sources */,
+				5F97C9E328A57A4E00F130F6 /* Date+Timer.swift in Sources */,
 				5F48C60528A2DE6700F316E1 /* InitialController.swift in Sources */,
 				5F48C62A28A2F12600F316E1 /* FontType.swift in Sources */,
 				5F48C62528A2EF9100F316E1 /* ButtonState.swift in Sources */,
+				5F97C9EF28A58F9000F130F6 /* AlertType.swift in Sources */,
 				5F48C63B28A3F4ED00F316E1 /* OnboardingPage.swift in Sources */,
 				5F48C64028A3F6A300F316E1 /* OnboardingPresenter.swift in Sources */,
 				5F48C65228A4445100F316E1 /* TimerController.swift in Sources */,
+				5F97C9F128A58FCF00F130F6 /* UIViewController+Alert.swift in Sources */,
+				5F97C9E928A58AAE00F130F6 /* UserDefaultsKeys.swift in Sources */,
 				5F48C61A28A2E55000F316E1 /* UIColor+Identifier.swift in Sources */,
 				5F48C64828A3FC2700F316E1 /* UICollectionView+ReusableCell.swift in Sources */,
 				5F48C60128A2DE6700F316E1 /* AppDelegate.swift in Sources */,
 				5F48C63E28A3F53000F316E1 /* OnboardingPageCollectionViewCell.swift in Sources */,
 				5F48C60328A2DE6700F316E1 /* SceneDelegate.swift in Sources */,
+				5F97C9EB28A58C3D00F130F6 /* TimerPresenter.swift in Sources */,
 				5F48C64B28A3FDCC00F316E1 /* IndexPath+Range.swift in Sources */,
 				5F48C63228A2F48A00F316E1 /* OnboardingController.swift in Sources */,
 				5F48C61F28A2E8D600F316E1 /* UIImage+Identifier.swift in Sources */,

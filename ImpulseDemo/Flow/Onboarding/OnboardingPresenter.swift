@@ -9,6 +9,7 @@ import Foundation
 
 protocol OnboardingPresenterProtocol {
     var numberOfPages: Int { get }
+    var shouldTimerScreenBeDisplayed: Bool { get }
 
     func getPagesViewModel(for index: IndexPath) -> OnboardingPage
 }
@@ -16,6 +17,8 @@ protocol OnboardingPresenterProtocol {
 class OnboardingPresenter: OnboardingPresenterProtocol {
 
     // MARK: - Properties
+
+    private let userDefaults = UserDefaults.standard
 
     let pagesViewModel = [
         OnboardingPage(
@@ -37,6 +40,10 @@ class OnboardingPresenter: OnboardingPresenterProtocol {
 
     var numberOfPages: Int {
         return pagesViewModel.count
+    }
+
+    var shouldTimerScreenBeDisplayed: Bool {
+        return !userDefaults.bool(forKey: UserDefaultsKeys.timerScreenWasShown)
     }
 
     // MARK: - Methods

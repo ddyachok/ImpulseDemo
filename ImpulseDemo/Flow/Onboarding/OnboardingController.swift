@@ -58,7 +58,12 @@ class OnboardingController: UIViewController {
     }
 
     @objc private func presentTimerScreen() {
-        let timerController = TimerController()
+        guard presenter.shouldTimerScreenBeDisplayed else {
+            present(alert: .timerUnavailable)
+            return
+        }
+        let presenter = TimerPresenter()
+        let timerController = TimerController(presenter: presenter)
         timerController.modalPresentationStyle = .overCurrentContext
         timerController.modalTransitionStyle = .crossDissolve
         navigationController?.present(timerController, animated: true, completion: nil)

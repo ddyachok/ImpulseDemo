@@ -11,6 +11,11 @@ class TimerController: UIViewController {
 
     // MARK: - Properties
 
+    private var timer: Timer?
+    private var totalTime = 0
+
+    private var presenter: TimerPresenterProtocol
+
     // MARK: - UI Elements
 
     private lazy var cardView: UIView = {
@@ -38,7 +43,7 @@ class TimerController: UIViewController {
         let progressView = UIProgressView()
         progressView.translatesAutoresizingMaskIntoConstraints = false
         progressView.progressTintColor = UIColor(.contentAccent)
-        progressView.setProgress(1, animated: true)
+        progressView.tintColor = UIColor(.contentAccent)
         return progressView
     }()
 
@@ -54,10 +59,44 @@ class TimerController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    @objc func addOneSecond() {
+        timeLabel.text = totalTime.convertToTime()
+        guard totalTime == 3 else {
+            totalTime += 1
+            timeProgressView.setProgress(Float(3 / totalTime), animated: true)
+            return
+        }
+        guard let timer = self.timer else {
+            return
+        }
+        presenter.stopShowingTimerScreen()
+        timer.invalidate()
+        self.timer = nil
+        continueButton.buttonState = .enabled
+    }
+
+    // MARK: - Initializers
+
+    init(presenter: TimerPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        timer = Timer.scheduledTimer(
+            timeInterval: 1.0,
+            target: self,
+            selector:#selector(self.addOneSecond),
+            userInfo: nil,
+            repeats: true
+        )
         configureView()
         configureUIElements()
     }

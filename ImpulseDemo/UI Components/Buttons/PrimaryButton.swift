@@ -11,15 +11,19 @@ final class PrimaryButton: UIButton {
 
     // MARK: - Properties
 
-    var buttonState: ButtonState = .enabled
+    var buttonState: ButtonState? {
+        didSet {
+            updateState(to: buttonState ?? .enabled)
+        }
+    }
 
     // MARK: - Initializers
 
     init(title: String, state: ButtonState = .enabled, type: UIButton.ButtonType = .system) {
         super.init(frame: .zero)
-        self.buttonState = state
         setTitle(title, for: .normal)
-        configure(dependingOn: state)
+        updateState(to: state)
+        configure()
     }
 
     required init?(coder: NSCoder) {
@@ -28,20 +32,24 @@ final class PrimaryButton: UIButton {
 
     // MARK: - Methods
 
-    private func configure(dependingOn state: ButtonState) {
+    private func updateState(to state: ButtonState) {
+        switch state {
+        case .enabled:
+            alpha = 1
+            isEnabled = true
+        case .disabled:
+            alpha = 0.4
+            isEnabled = false
+        }
+    }
+
+    private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = 10
         clipsToBounds = true
         backgroundColor = UIColor(.contentAccent)
         setTitleColor(UIColor(.contentPrimary), for: .normal)
         titleLabel?.font = UIFont(type: .interSemibold, size: 16)
-        
-        switch state {
-        case .enabled:
-            alpha = 1
-        case .disabled:
-            alpha = 0.4
-        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -55,7 +63,7 @@ final class PrimaryButton: UIButton {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        configure(dependingOn: buttonState)
+        configure()
     }
 }
 
