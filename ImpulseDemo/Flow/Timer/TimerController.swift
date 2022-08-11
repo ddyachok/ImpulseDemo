@@ -59,11 +59,11 @@ class TimerController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    @objc func addOneSecond() {
+    @objc func setupTimer() {
         timeLabel.text = totalTime.convertToTime()
-        guard totalTime == 3 else {
+        guard totalTime == 60 else {
             totalTime += 1
-            timeProgressView.setProgress(Float(3 / totalTime), animated: true)
+            timeProgressView.setProgress(Float(60 / totalTime), animated: true)
             return
         }
         guard let timer = self.timer else {
@@ -93,7 +93,7 @@ class TimerController: UIViewController {
         timer = Timer.scheduledTimer(
             timeInterval: 1.0,
             target: self,
-            selector:#selector(self.addOneSecond),
+            selector: #selector(self.setupTimer),
             userInfo: nil,
             repeats: true
         )
