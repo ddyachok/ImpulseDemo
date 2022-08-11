@@ -24,7 +24,7 @@ class InitialController: UIViewController {
     @objc private func presentOnboardingScreen() {
         startButton.buttonState = .disabled
         let presenter = OnboardingPresenter()
-        let controller = OnboardingController(presenter: presenter)
+        let controller = UINavigationController(rootViewController: OnboardingController(presenter: presenter)) 
         controller.modalPresentationStyle = .fullScreen
         navigationController?.present(controller, animated: true, completion: nil)
     }

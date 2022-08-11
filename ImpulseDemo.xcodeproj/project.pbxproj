@@ -29,6 +29,7 @@
 		5F48C64C28A41A8500F316E1 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C62C28A2F2B600F316E1 /* Inter-Bold.otf */; };
 		5F48C64D28A41A8700F316E1 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C63328A2F94D00F316E1 /* Inter-SemiBold.otf */; };
 		5F48C64E28A41A8A00F316E1 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C62D28A2F2C100F316E1 /* Inter-Regular.otf */; };
+		5F48C65228A4445100F316E1 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C65128A4445100F316E1 /* TimerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		5F48C64328A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+ReuseID.swift"; sourceTree = "<group>"; };
 		5F48C64728A3FC2700F316E1 /* UICollectionView+ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReusableCell.swift"; sourceTree = "<group>"; };
 		5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Range.swift"; sourceTree = "<group>"; };
+		5F48C65128A4445100F316E1 /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		5F48C61428A2E47A00F316E1 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				5F48C65028A4444300F316E1 /* Timer */,
 				5F48C63028A2F47D00F316E1 /* Onboarding */,
 				5F48C60428A2DE6700F316E1 /* InitialController.swift */,
 			);
@@ -259,6 +262,14 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
+		5F48C65028A4444300F316E1 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C65128A4445100F316E1 /* TimerController.swift */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -341,6 +352,7 @@
 				5F48C62528A2EF9100F316E1 /* ButtonState.swift in Sources */,
 				5F48C63B28A3F4ED00F316E1 /* OnboardingPage.swift in Sources */,
 				5F48C64028A3F6A300F316E1 /* OnboardingPresenter.swift in Sources */,
+				5F48C65228A4445100F316E1 /* TimerController.swift in Sources */,
 				5F48C61A28A2E55000F316E1 /* UIColor+Identifier.swift in Sources */,
 				5F48C64828A3FC2700F316E1 /* UICollectionView+ReusableCell.swift in Sources */,
 				5F48C60128A2DE6700F316E1 /* AppDelegate.swift in Sources */,
