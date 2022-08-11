@@ -51,7 +51,7 @@ class TimerController: UIViewController {
     // MARK: - Actions
 
     @objc private func closeTimerScreen() {
-        navigationController?.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Methods

@@ -102,8 +102,8 @@
 		5F48C61428A2E47A00F316E1 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				5F48C65028A4444300F316E1 /* Timer */,
 				5F48C63028A2F47D00F316E1 /* Onboarding */,
+				5F48C65028A4444300F316E1 /* Timer */,
 				5F48C60428A2DE6700F316E1 /* InitialController.swift */,
 			);
 			path = Flow;
