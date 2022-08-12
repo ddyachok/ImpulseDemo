@@ -6,7 +6,9 @@
 //
 
 enum FontType {
-    case interBold, interSemibold, interRegular
+    case interBold
+    case interSemibold
+    case interRegular
 
     var weight: String {
         switch self {

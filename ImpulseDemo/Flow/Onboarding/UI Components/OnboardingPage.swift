@@ -8,7 +8,7 @@
 import Foundation
 
 struct OnboardingPage {
-    let image: ImagesAssets
+    let image: ImageAsset
     let headerText: String
     let descriptionText: String
 }

@@ -1,5 +1,5 @@
 //
-//  UIColor+Identifier.swift
+//  ColorIdentifier.swift
 //  ImpulseDemo
 //
 //  Created by Daniel Dyachok on 09.08.2022.
@@ -13,10 +13,4 @@ enum ColorIdentifier: String {
     case contentAccent = "contentAccent"
     case contentPrimary = "contentPrimary"
     case pageControlTint = "pageControlTint"
-}
-
-extension UIColor {
-    convenience init!(_ colorIdentifier: ColorIdentifier) {
-        self.init(named: colorIdentifier.rawValue)
-    }
 }

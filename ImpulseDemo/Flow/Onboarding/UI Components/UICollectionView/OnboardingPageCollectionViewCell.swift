@@ -60,7 +60,7 @@ class OnboardingPageCollectionViewCell: UICollectionViewCell {
     }
 
     func setup(with page: OnboardingPage) {
-        imageView.set(image: page.image)
+        imageView.set(asset: page.image)
         headerLabel.text = page.headerText
         descriptionLabel.text = page.descriptionText
     }
