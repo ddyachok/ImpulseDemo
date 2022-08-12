@@ -37,6 +37,7 @@
 		5F97C9EF28A58F9000F130F6 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9EE28A58F9000F130F6 /* AlertType.swift */; };
 		5F97C9F128A58FCF00F130F6 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9F028A58FCF00F130F6 /* UIViewController+Alert.swift */; };
 		5FD883C428A673FE006A26D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD883C328A673FE006A26D5 /* Constants.swift */; };
+		5FD883C628A678D2006A26D5 /* Int+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD883C528A678D1006A26D5 /* Int+Calculations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		5F97C9EE28A58F9000F130F6 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		5F97C9F028A58FCF00F130F6 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		5FD883C328A673FE006A26D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5FD883C528A678D1006A26D5 /* Int+Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Calculations.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 				5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */,
 				5F97C9E228A57A4E00F130F6 /* Date+Timer.swift */,
 				5F97C9E428A57C2500F130F6 /* Int+Time.swift */,
+				5FD883C528A678D1006A26D5 /* Int+Calculations.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				5F48C64028A3F6A300F316E1 /* OnboardingPresenter.swift in Sources */,
 				5F48C65228A4445100F316E1 /* TimerController.swift in Sources */,
 				5F97C9F128A58FCF00F130F6 /* UIViewController+Alert.swift in Sources */,
+				5FD883C628A678D2006A26D5 /* Int+Calculations.swift in Sources */,
 				5F97C9E928A58AAE00F130F6 /* UserDefaultsKeys.swift in Sources */,
 				5F48C61A28A2E55000F316E1 /* UIColor+Identifier.swift in Sources */,
 				5F48C64828A3FC2700F316E1 /* UICollectionView+ReusableCell.swift in Sources */,

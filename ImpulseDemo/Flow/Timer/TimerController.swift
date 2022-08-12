@@ -61,18 +61,12 @@ class TimerController: UIViewController {
 
     @objc func setupTimer() {
         timeLabel.text = totalTime.convertToTime()
-        guard totalTime == Constants.Timer.numberOfSeondsInMinute else {
-            totalTime += 1
+        guard totalTime >= Constants.Timer.numberOfSeondsInMinute else {
+            totalTime.increase()
             timeProgressView.setProgress(Float(Constants.Timer.numberOfSeondsInMinute / totalTime), animated: true)
             return
         }
-        guard let timer = self.timer else {
-            return
-        }
-        presenter.stopShowingTimerScreen()
-        timer.invalidate()
-        self.timer = nil
-        continueButton.buttonState = .enabled
+        stopTimer()
     }
 
     // MARK: - Initializers
@@ -99,10 +93,17 @@ class TimerController: UIViewController {
         timer = Timer.scheduledTimer(
             timeInterval: 1.0,
             target: self,
-            selector: #selector(self.setupTimer),
+            selector: #selector(setupTimer),
             userInfo: nil,
             repeats: true
         )
+    }
+
+    private func stopTimer() {
+        presenter.stopShowingTimerScreen()
+        timer?.invalidate()
+        self.timer = nil
+        continueButton.buttonState = .enabled
     }
 
     // MARK: - Configuration Methods
