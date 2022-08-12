@@ -61,9 +61,9 @@ class TimerController: UIViewController {
 
     @objc func setupTimer() {
         timeLabel.text = totalTime.convertToTime()
-        guard totalTime == 60 else {
+        guard totalTime == Constants.Timer.numberOfSeondsInMinute else {
             totalTime += 1
-            timeProgressView.setProgress(Float(60 / totalTime), animated: true)
+            timeProgressView.setProgress(Float(Constants.Timer.numberOfSeondsInMinute / totalTime), animated: true)
             return
         }
         guard let timer = self.timer else {
@@ -90,6 +90,12 @@ class TimerController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTimer()
+        configureView()
+        configureUIElements()
+    }
+
+    private func setTimer() {
         timer = Timer.scheduledTimer(
             timeInterval: 1.0,
             target: self,
@@ -97,10 +103,7 @@ class TimerController: UIViewController {
             userInfo: nil,
             repeats: true
         )
-        configureView()
-        configureUIElements()
     }
-
 
     // MARK: - Configuration Methods
 

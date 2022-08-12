@@ -110,6 +110,19 @@ class OnboardingController: UIViewController {
         bottomButton.addTarget(self, action: #selector(showNextOnboardingScreen), for: .touchUpInside)
     }
 
+    private func configureBottomButton(_ didReachLastPage: Bool) {
+        guard didReachLastPage else {
+            bottomButton.setTitle("Next", for: .normal)
+            bottomButton.removeTarget(self, action: #selector(presentTimerScreen), for: .touchUpInside)
+            bottomButton.addTarget(self, action: #selector(showNextOnboardingScreen), for: .touchUpInside)
+            return
+        }
+
+        bottomButton.setTitle("Continue", for: .normal)
+        bottomButton.removeTarget(self, action: #selector(showNextOnboardingScreen), for: .touchUpInside)
+        bottomButton.addTarget(self, action: #selector(presentTimerScreen), for: .touchUpInside)
+    }
+
     private func configurePageControl() {
         view.addSubview(pageControl)
         pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -157,17 +170,7 @@ extension OnboardingController: UICollectionViewDelegate, UICollectionViewDataSo
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetX = scrollView.contentOffset.x
         let collectionViewWidth = pagesCollectionView.contentSize.width - scrollView.frame.size.width
-        let didReachEnd = offsetX > (collectionViewWidth - view.frame.width / 1.6)
-
-        guard didReachEnd else {
-            bottomButton.setTitle("Next", for: .normal)
-            bottomButton.removeTarget(self, action: #selector(presentTimerScreen), for: .touchUpInside)
-            bottomButton.addTarget(self, action: #selector(showNextOnboardingScreen), for: .touchUpInside)
-            return
-        }
-
-        bottomButton.setTitle("Continue", for: .normal)
-        bottomButton.removeTarget(self, action: #selector(showNextOnboardingScreen), for: .touchUpInside)
-        bottomButton.addTarget(self, action: #selector(presentTimerScreen), for: .touchUpInside)
+        let didReachLastPage = offsetX > (collectionViewWidth - view.frame.width / 1.6)
+        configureBottomButton(didReachLastPage)
     }
 }
