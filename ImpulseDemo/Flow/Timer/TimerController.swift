@@ -84,7 +84,9 @@ class TimerController: UIViewController, TimerControllerProtocol {
 
     func updateTimer(with timeText: String, progressValue: Float) {
         timeLabel.text = timeText
-        timeProgressView.setProgress(progressValue, animated: true)
+        UIView.animate(withDuration: 0.2) {
+            self.timeProgressView.setProgress(progressValue, animated: true)
+        }
     }
 
     func setContinueButton(state: ButtonState) {
@@ -95,7 +97,9 @@ class TimerController: UIViewController, TimerControllerProtocol {
 
     private func configurePresenter() {
         presenter.controller = self
-        presenter.startTimer()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            self.presenter.startTimer()
+        }
     }
 
     private func configureView() {

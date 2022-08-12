@@ -19,7 +19,7 @@ class TimerPresenter: TimerPresenterProtocol {
 
     weak var controller: (AlertProtocol & TimerControllerProtocol)?
     private let userDefaults = UserDefaults.standard
-    var totalTime: Float = -1.0
+    var totalTime: Float = 0.0
     private lazy var timer: Timer = {
         let timer = Timer.scheduledTimer(
             timeInterval: 1.0,
