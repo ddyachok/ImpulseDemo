@@ -17,6 +17,7 @@ class OnboardingController: UIViewController {
 
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
+        pageControl.isUserInteractionEnabled = false
         pageControl.currentPage = 0
         pageControl.numberOfPages = presenter.numberOfPages
         pageControl.currentPageIndicatorTintColor = UIColor(.contentPrimary)
