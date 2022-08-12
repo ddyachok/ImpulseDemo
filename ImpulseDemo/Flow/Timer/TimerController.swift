@@ -7,12 +7,14 @@
 
 import UIKit
 
-class TimerController: UIViewController {
+protocol TimerControllerProtocol {
+    func updateTimer(with timeText: String, progressValue: Float)
+    func setContinueButton(state: ButtonState)
+}
+
+class TimerController: UIViewController, TimerControllerProtocol {
 
     // MARK: - Properties
-
-    private var timer: Timer?
-    private var totalTime = 0
 
     private var presenter: TimerPresenterProtocol
 
@@ -41,6 +43,7 @@ class TimerController: UIViewController {
 
     private lazy var timeProgressView: UIProgressView = {
         let progressView = UIProgressView()
+        progressView.setProgress(0, animated: false)
         progressView.translatesAutoresizingMaskIntoConstraints = false
         progressView.progressTintColor = UIColor(.contentAccent)
         progressView.tintColor = UIColor(.contentAccent)
@@ -59,16 +62,6 @@ class TimerController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    @objc func setupTimer() {
-        timeLabel.text = totalTime.convertToTime()
-        guard totalTime >= Constants.Timer.numberOfSeondsInMinute else {
-            totalTime.increase()
-            timeProgressView.setProgress(Float(Constants.Timer.numberOfSeondsInMinute / totalTime), animated: true)
-            return
-        }
-        stopTimer()
-    }
-
     // MARK: - Initializers
 
     init(presenter: TimerPresenterProtocol) {
@@ -84,29 +77,26 @@ class TimerController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTimer()
+        configurePresenter()
         configureView()
         configureUIElements()
     }
 
-    private func setTimer() {
-        timer = Timer.scheduledTimer(
-            timeInterval: 1.0,
-            target: self,
-            selector: #selector(setupTimer),
-            userInfo: nil,
-            repeats: true
-        )
+    func updateTimer(with timeText: String, progressValue: Float) {
+        timeLabel.text = timeText
+        timeProgressView.setProgress(progressValue, animated: true)
     }
 
-    private func stopTimer() {
-        presenter.stopShowingTimerScreen()
-        timer?.invalidate()
-        self.timer = nil
-        continueButton.buttonState = .enabled
+    func setContinueButton(state: ButtonState) {
+        continueButton.buttonState = state
     }
 
     // MARK: - Configuration Methods
+
+    private func configurePresenter() {
+        presenter.controller = self
+        presenter.startTimer()
+    }
 
     private func configureView() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)

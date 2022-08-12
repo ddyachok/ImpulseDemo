@@ -9,6 +9,6 @@ import Foundation
 
 struct Constants {
     struct Timer {
-        static let numberOfSeondsInMinute: Int = 60
+        static let numberOfSeondsInMinute: Float = 60.0
     }
 }

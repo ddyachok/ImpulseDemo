@@ -13,19 +13,20 @@ protocol AlertProtocol: AnyObject {
 }
 
 enum AlertType {
-    case timerUnavailable
+    case functionalityUnderDevelopment
 }
 
 extension AlertType {
     var title: String {
         switch self {
-        case .timerUnavailable:
+        case .functionalityUnderDevelopment:
             return "Thank you for your interest"
         }
     }
+    
     var message: String {
         switch self {
-        case .timerUnavailable:
+        case .functionalityUnderDevelopment:
             return "The functionality is under development"
         }
     }

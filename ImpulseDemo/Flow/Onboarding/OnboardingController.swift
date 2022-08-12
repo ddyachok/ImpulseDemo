@@ -59,7 +59,7 @@ class OnboardingController: UIViewController {
 
     @objc private func presentTimerScreen() {
         guard presenter.shouldTimerScreenBeDisplayed else {
-            present(alert: .timerUnavailable)
+            present(alert: .functionalityUnderDevelopment)
             return
         }
         let presenter = TimerPresenter()

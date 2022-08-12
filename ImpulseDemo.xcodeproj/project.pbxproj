@@ -30,13 +30,13 @@
 		5F48C64D28A41A8700F316E1 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C63328A2F94D00F316E1 /* Inter-SemiBold.otf */; };
 		5F48C64E28A41A8A00F316E1 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5F48C62D28A2F2C100F316E1 /* Inter-Regular.otf */; };
 		5F48C65228A4445100F316E1 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C65128A4445100F316E1 /* TimerController.swift */; };
-		5F97C9E528A57C2500F130F6 /* Int+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9E428A57C2500F130F6 /* Int+Time.swift */; };
+		5F97C9E528A57C2500F130F6 /* Float+Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9E428A57C2500F130F6 /* Float+Time.swift */; };
 		5F97C9E928A58AAE00F130F6 /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9E828A58AAE00F130F6 /* UserDefaultsKeys.swift */; };
 		5F97C9EB28A58C3D00F130F6 /* TimerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9EA28A58C3D00F130F6 /* TimerPresenter.swift */; };
 		5F97C9EF28A58F9000F130F6 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9EE28A58F9000F130F6 /* AlertType.swift */; };
 		5F97C9F128A58FCF00F130F6 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F97C9F028A58FCF00F130F6 /* UIViewController+Alert.swift */; };
 		5FD883C428A673FE006A26D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD883C328A673FE006A26D5 /* Constants.swift */; };
-		5FD883C628A678D2006A26D5 /* Int+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD883C528A678D1006A26D5 /* Int+Calculations.swift */; };
+		5FD883C628A678D2006A26D5 /* Float+Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD883C528A678D1006A26D5 /* Float+Calculations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,13 +65,13 @@
 		5F48C64728A3FC2700F316E1 /* UICollectionView+ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReusableCell.swift"; sourceTree = "<group>"; };
 		5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Range.swift"; sourceTree = "<group>"; };
 		5F48C65128A4445100F316E1 /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
-		5F97C9E428A57C2500F130F6 /* Int+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Time.swift"; sourceTree = "<group>"; };
+		5F97C9E428A57C2500F130F6 /* Float+Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Time.swift"; sourceTree = "<group>"; };
 		5F97C9E828A58AAE00F130F6 /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		5F97C9EA28A58C3D00F130F6 /* TimerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPresenter.swift; sourceTree = "<group>"; };
 		5F97C9EE28A58F9000F130F6 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		5F97C9F028A58FCF00F130F6 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		5FD883C328A673FE006A26D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		5FD883C528A678D1006A26D5 /* Int+Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Calculations.swift"; sourceTree = "<group>"; };
+		5FD883C528A678D1006A26D5 /* Float+Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Calculations.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,8 +274,8 @@
 			isa = PBXGroup;
 			children = (
 				5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */,
-				5F97C9E428A57C2500F130F6 /* Int+Time.swift */,
-				5FD883C528A678D1006A26D5 /* Int+Calculations.swift */,
+				5F97C9E428A57C2500F130F6 /* Float+Time.swift */,
+				5FD883C528A678D1006A26D5 /* Float+Calculations.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -398,7 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F48C62828A2F10500F316E1 /* UIFont+Type.swift in Sources */,
-				5F97C9E528A57C2500F130F6 /* Int+Time.swift in Sources */,
+				5F97C9E528A57C2500F130F6 /* Float+Time.swift in Sources */,
 				5F48C62228A2EB3F00F316E1 /* PrimaryButton.swift in Sources */,
 				5F48C64428A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift in Sources */,
 				5F48C60528A2DE6700F316E1 /* InitialController.swift in Sources */,
@@ -409,7 +409,7 @@
 				5F48C64028A3F6A300F316E1 /* OnboardingPresenter.swift in Sources */,
 				5F48C65228A4445100F316E1 /* TimerController.swift in Sources */,
 				5F97C9F128A58FCF00F130F6 /* UIViewController+Alert.swift in Sources */,
-				5FD883C628A678D2006A26D5 /* Int+Calculations.swift in Sources */,
+				5FD883C628A678D2006A26D5 /* Float+Calculations.swift in Sources */,
 				5F97C9E928A58AAE00F130F6 /* UserDefaultsKeys.swift in Sources */,
 				5F48C61A28A2E55000F316E1 /* UIColor+Identifier.swift in Sources */,
 				5F48C64828A3FC2700F316E1 /* UICollectionView+ReusableCell.swift in Sources */,
