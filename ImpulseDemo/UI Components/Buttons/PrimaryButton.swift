@@ -60,10 +60,5 @@ final class PrimaryButton: UIButton {
             self.transform = CGAffineTransform.identity
         }
     }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        configure()
-    }
 }
 

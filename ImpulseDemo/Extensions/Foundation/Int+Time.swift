@@ -9,8 +9,8 @@ import Foundation
 
 extension Int {
     func convertToTime() -> String {
-        let seconds: Int = self % 60
-        let minutes: Int = (self / 60) % 60
+        let seconds: Int = self % Constants.Timer.numberOfSeondsInMinute
+        let minutes: Int = (self / Constants.Timer.numberOfSeondsInMinute) % Constants.Timer.numberOfSeondsInMinute
         return String(format: "%02d:%02d", minutes, seconds)
     }
 }
