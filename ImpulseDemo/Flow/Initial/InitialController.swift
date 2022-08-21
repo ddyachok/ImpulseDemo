@@ -11,6 +11,9 @@ class InitialController: UIViewController {
 
     // MARK: - Properties
 
+    var mainCoordinator: MainFlowCoordinator!
+    var viewModel: InitialViewModelProtocol!
+
     // MARK: - UI Elements
 
     private lazy var startButton: PrimaryButton = {
@@ -27,6 +30,13 @@ class InitialController: UIViewController {
         let controller = UINavigationController(rootViewController: OnboardingController(presenter: presenter)) 
         controller.modalPresentationStyle = .fullScreen
         navigationController?.present(controller, animated: true, completion: nil)
+    }
+
+    // MARK: - Initializers
+
+    convenience init(viewModel: InitialViewModelProtocol) {
+        self.init()
+        self.viewModel = viewModel
     }
 
     // MARK: - Methods
