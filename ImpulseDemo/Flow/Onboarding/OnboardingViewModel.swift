@@ -12,6 +12,8 @@ import RxCocoa
 protocol OnboardingViewModelProtocol: AnyObject {
     var pages: BehaviorRelay<[OnboardingPage]> { get }
     var shouldTimerScreenBeDisplayed: BehaviorRelay<Bool> { get }
+
+    func getPage(for index: IndexPath) -> OnboardingPage
 }
 
 final class OnboardingViewModel: OnboardingViewModelProtocol, DisposeBagProtocol {
@@ -32,10 +34,17 @@ final class OnboardingViewModel: OnboardingViewModelProtocol, DisposeBagProtocol
     // MARK: - Methods
 
     private func setupTimer() {
-        
+
     }
 
     private func checkTimerDisplayState() {
         shouldTimerScreenBeDisplayed.accept(!userDefaults.bool(forKey: UserDefaultsKeys.timerScreenWasShown))
+    }
+
+    func getPage(for index: IndexPath) -> OnboardingPage {
+        guard index.isInRange(of: pages.value.count) else {
+            return .defaultPage
+        }
+        return pages.value[index.row]
     }
 }

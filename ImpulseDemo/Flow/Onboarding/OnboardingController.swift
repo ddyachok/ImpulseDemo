@@ -158,8 +158,7 @@ extension OnboardingController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
 
-        let page = viewModel.pages.value[indexPath.row]
-        cell.setup(with: page)
+        cell.setup(with: viewModel.getPage(for: indexPath))
         return cell
     }
 

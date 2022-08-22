@@ -31,7 +31,6 @@
 		5F48C63228A2F48A00F316E1 /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C63128A2F48A00F316E1 /* OnboardingController.swift */; };
 		5F48C63B28A3F4ED00F316E1 /* OnboardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C63A28A3F4ED00F316E1 /* OnboardingPage.swift */; };
 		5F48C63E28A3F53000F316E1 /* OnboardingPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C63D28A3F53000F316E1 /* OnboardingPageCollectionViewCell.swift */; };
-		5F48C64028A3F6A300F316E1 /* OnboardingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C63F28A3F6A300F316E1 /* OnboardingPresenter.swift */; };
 		5F48C64428A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C64328A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift */; };
 		5F48C64828A3FC2700F316E1 /* UICollectionView+ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C64728A3FC2700F316E1 /* UICollectionView+ReusableCell.swift */; };
 		5F48C64B28A3FDCC00F316E1 /* IndexPath+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */; };
@@ -79,7 +78,6 @@
 		5F48C63328A2F94D00F316E1 /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
 		5F48C63A28A3F4ED00F316E1 /* OnboardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPage.swift; sourceTree = "<group>"; };
 		5F48C63D28A3F53000F316E1 /* OnboardingPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageCollectionViewCell.swift; sourceTree = "<group>"; };
-		5F48C63F28A3F6A300F316E1 /* OnboardingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPresenter.swift; sourceTree = "<group>"; };
 		5F48C64328A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+ReuseID.swift"; sourceTree = "<group>"; };
 		5F48C64728A3FC2700F316E1 /* UICollectionView+ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+ReusableCell.swift"; sourceTree = "<group>"; };
 		5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IndexPath+Range.swift"; sourceTree = "<group>"; };
@@ -310,7 +308,6 @@
 				5F48C63128A2F48A00F316E1 /* OnboardingController.swift */,
 				5F34498828B39F3A00E6B637 /* OnboardingViewModel.swift */,
 				5F34498628B39EF500E6B637 /* OnboardingFlowCoordinator.swift */,
-				5F48C63F28A3F6A300F316E1 /* OnboardingPresenter.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -517,7 +514,6 @@
 				5F34498528B2C4E400E6B637 /* DisposeBagProtocol.swift in Sources */,
 				5F34497628B2BBB200E6B637 /* BaseCoordinator.swift in Sources */,
 				5FD883CE28A6B132006A26D5 /* UIImageView+Asset.swift in Sources */,
-				5F48C64028A3F6A300F316E1 /* OnboardingPresenter.swift in Sources */,
 				5F48C65228A4445100F316E1 /* TimerController.swift in Sources */,
 				5F97C9F128A58FCF00F130F6 /* UIViewController+Alert.swift in Sources */,
 				5FD883C628A678D2006A26D5 /* Float+Calculations.swift in Sources */,
