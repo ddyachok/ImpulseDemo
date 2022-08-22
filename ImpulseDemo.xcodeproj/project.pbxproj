@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		5F33771F28B0E8F200C5A431 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 5F33771E28B0E8F200C5A431 /* RxCocoa */; };
 		5F33772128B0E8F200C5A431 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5F33772028B0E8F200C5A431 /* RxSwift */; };
-		5F34497328B2BB5500E6B637 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34497228B2BB5500E6B637 /* MainFlowCoordinator.swift */; };
+		5F34497328B2BB5500E6B637 /* InitialFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34497228B2BB5500E6B637 /* InitialFlowCoordinator.swift */; };
 		5F34497628B2BBB200E6B637 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34497528B2BBB200E6B637 /* BaseCoordinator.swift */; };
 		5F34497828B2BBF000E6B637 /* FlowCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34497728B2BBF000E6B637 /* FlowCoordinatorProtocol.swift */; };
 		5F34497B28B2BDA800E6B637 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34497A28B2BDA800E6B637 /* ApplicationCoordinator.swift */; };
-		5F34497E28B2C3D800E6B637 /* InitialFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34497D28B2C3D800E6B637 /* InitialFlowCoordinator.swift */; };
-		5F34498028B2C46900E6B637 /* InitialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34497F28B2C46900E6B637 /* InitialViewModel.swift */; };
 		5F34498528B2C4E400E6B637 /* DisposeBagProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34498428B2C4E400E6B637 /* DisposeBagProtocol.swift */; };
+		5F34498728B39EF500E6B637 /* OnboardingFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34498628B39EF500E6B637 /* OnboardingFlowCoordinator.swift */; };
+		5F34498928B39F3A00E6B637 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34498828B39F3A00E6B637 /* OnboardingViewModel.swift */; };
 		5F48C60128A2DE6700F316E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C60028A2DE6700F316E1 /* AppDelegate.swift */; };
 		5F48C60328A2DE6700F316E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C60228A2DE6700F316E1 /* SceneDelegate.swift */; };
 		5F48C60528A2DE6700F316E1 /* InitialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C60428A2DE6700F316E1 /* InitialController.swift */; };
@@ -52,13 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5F34497228B2BB5500E6B637 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
+		5F34497228B2BB5500E6B637 /* InitialFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialFlowCoordinator.swift; sourceTree = "<group>"; };
 		5F34497528B2BBB200E6B637 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		5F34497728B2BBF000E6B637 /* FlowCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		5F34497A28B2BDA800E6B637 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
-		5F34497D28B2C3D800E6B637 /* InitialFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialFlowCoordinator.swift; sourceTree = "<group>"; };
-		5F34497F28B2C46900E6B637 /* InitialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewModel.swift; sourceTree = "<group>"; };
 		5F34498428B2C4E400E6B637 /* DisposeBagProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBagProtocol.swift; sourceTree = "<group>"; };
+		5F34498628B39EF500E6B637 /* OnboardingFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowCoordinator.swift; sourceTree = "<group>"; };
+		5F34498828B39F3A00E6B637 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		5F48C5FD28A2DE6700F316E1 /* ImpulseDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpulseDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F48C60028A2DE6700F316E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F48C60228A2DE6700F316E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,8 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				5F48C60428A2DE6700F316E1 /* InitialController.swift */,
-				5F34497F28B2C46900E6B637 /* InitialViewModel.swift */,
-				5F34497D28B2C3D800E6B637 /* InitialFlowCoordinator.swift */,
+				5F34497228B2BB5500E6B637 /* InitialFlowCoordinator.swift */,
 			);
 			path = Initial;
 			sourceTree = "<group>";
@@ -198,7 +197,6 @@
 				5F34497C28B2C3BE00E6B637 /* Initial */,
 				5F48C63028A2F47D00F316E1 /* Onboarding */,
 				5F48C65028A4444300F316E1 /* Timer */,
-				5F34497228B2BB5500E6B637 /* MainFlowCoordinator.swift */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -310,6 +308,8 @@
 			children = (
 				5F48C63928A3F47300F316E1 /* UI Components */,
 				5F48C63128A2F48A00F316E1 /* OnboardingController.swift */,
+				5F34498828B39F3A00E6B637 /* OnboardingViewModel.swift */,
+				5F34498628B39EF500E6B637 /* OnboardingFlowCoordinator.swift */,
 				5F48C63F28A3F6A300F316E1 /* OnboardingPresenter.swift */,
 			);
 			path = Onboarding;
@@ -526,14 +526,14 @@
 				5F48C64828A3FC2700F316E1 /* UICollectionView+ReusableCell.swift in Sources */,
 				5F48C60128A2DE6700F316E1 /* AppDelegate.swift in Sources */,
 				5F48C63E28A3F53000F316E1 /* OnboardingPageCollectionViewCell.swift in Sources */,
+				5F34498728B39EF500E6B637 /* OnboardingFlowCoordinator.swift in Sources */,
 				5F48C60328A2DE6700F316E1 /* SceneDelegate.swift in Sources */,
 				5F97C9EB28A58C3D00F130F6 /* TimerPresenter.swift in Sources */,
 				5F48C64B28A3FDCC00F316E1 /* IndexPath+Range.swift in Sources */,
 				5F48C63228A2F48A00F316E1 /* OnboardingController.swift in Sources */,
-				5F34497328B2BB5500E6B637 /* MainFlowCoordinator.swift in Sources */,
+				5F34497328B2BB5500E6B637 /* InitialFlowCoordinator.swift in Sources */,
 				5F48C61F28A2E8D600F316E1 /* ImageAsset.swift in Sources */,
-				5F34498028B2C46900E6B637 /* InitialViewModel.swift in Sources */,
-				5F34497E28B2C3D800E6B637 /* InitialFlowCoordinator.swift in Sources */,
+				5F34498928B39F3A00E6B637 /* OnboardingViewModel.swift in Sources */,
 				5FD883C428A673FE006A26D5 /* Constants.swift in Sources */,
 				5F34497B28B2BDA800E6B637 /* ApplicationCoordinator.swift in Sources */,
 			);

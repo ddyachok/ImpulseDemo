@@ -11,7 +11,7 @@ class OnboardingController: UIViewController {
 
     // MARK: - Properties
 
-    private var presenter: OnboardingPresenterProtocol
+    private var viewModel: OnboardingViewModelProtocol
 
     // MARK: - UI Elements
 
@@ -19,7 +19,7 @@ class OnboardingController: UIViewController {
         let pageControl = UIPageControl()
         pageControl.isUserInteractionEnabled = false
         pageControl.currentPage = 0
-        pageControl.numberOfPages = presenter.numberOfPages
+        pageControl.numberOfPages = viewModel.pages.value.count
         pageControl.currentPageIndicatorTintColor = UIColor(.contentPrimary)
         pageControl.pageIndicatorTintColor = UIColor(.pageControlTint)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
@@ -49,36 +49,36 @@ class OnboardingController: UIViewController {
         return button
     }()
 
+    // MARK: - Initializers
+
+    init(viewModel: OnboardingViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - Actions
 
     @objc private func showNextOnboardingScreen() {
-        let nextIndex = min(pageControl.currentPage + 1, presenter.numberOfPages - 1)
+        let nextIndex = min(pageControl.currentPage + 1, viewModel.pages.value.count - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
         pageControl.currentPage = nextIndex
         pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 
     @objc private func presentTimerScreen() {
-        guard presenter.shouldTimerScreenBeDisplayed else {
-            present(alert: .functionalityUnderDevelopment)
-            return
-        }
-        let presenter = TimerPresenter()
-        let timerController = TimerController(presenter: presenter)
-        timerController.modalPresentationStyle = .overCurrentContext
-        timerController.modalTransitionStyle = .crossDissolve
-        navigationController?.present(timerController, animated: true, completion: nil)
-    }
-
-    // MARK: - Initializers
-
-    init(presenter: OnboardingPresenterProtocol) {
-        self.presenter = presenter
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+//        guard presenter.shouldTimerScreenBeDisplayed else {
+//            present(alert: .functionalityUnderDevelopment)
+//            return
+//        }
+//        let presenter = TimerPresenter()
+//        let timerController = TimerController(presenter: presenter)
+//        timerController.modalPresentationStyle = .overCurrentContext
+//        timerController.modalTransitionStyle = .crossDissolve
+//        navigationController?.present(timerController, animated: true, completion: nil)
     }
 
     // MARK: - Methods
@@ -147,7 +147,7 @@ extension OnboardingController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.numberOfPages
+        return viewModel.pages.value.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -158,7 +158,7 @@ extension OnboardingController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
 
-        let page = presenter.getPagesViewModel(for: indexPath)
+        let page = viewModel.pages.value[indexPath.row]
         cell.setup(with: page)
         return cell
     }

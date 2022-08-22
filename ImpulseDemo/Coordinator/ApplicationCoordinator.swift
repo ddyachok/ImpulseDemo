@@ -51,7 +51,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
 
     private func presentMainFlow() {
-        let flow = MainFlowCoordinator(UINavigationController())
+        let flow = InitialFlowCoordinator(UINavigationController())
         presentedFlow = .main
         flow.finishFlow = { [weak self] in
             self?.removeDependency(flow)

@@ -13,7 +13,7 @@ struct OnboardingPage {
     let descriptionText: String
 }
 
-// MARK: - Mocks
+// MARK: - Pages with values
 
 extension OnboardingPage {
     static let defaultPage: Self = .init(
@@ -21,4 +21,24 @@ extension OnboardingPage {
         headerText: "Some Text",
         descriptionText: "Text text text text"
     )
+
+    static let firstPage: Self = OnboardingPage(
+        image: .rocket,
+        headerText: "Boost Productivity",
+        descriptionText: "Take your productivity to the next level"
+    )
+
+    static let secondPage: Self = OnboardingPage(
+        image: .laptop,
+        headerText: "Work Seamlessly",
+        descriptionText: "Get your work done seamlessly \nwithout interruption"
+    )
+
+    static let thirdPage: Self = OnboardingPage(
+        image: .girl,
+        headerText: "Achieve Your Goals",
+        descriptionText: "Boosted productivity will help you achieve \nthe desired goals"
+    )
+    
+    static let allPages: [Self] = [firstPage, secondPage, thirdPage].shuffled()
 }

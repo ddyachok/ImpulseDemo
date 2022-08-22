@@ -11,32 +11,21 @@ class InitialController: UIViewController {
 
     // MARK: - Properties
 
-    var mainCoordinator: MainFlowCoordinator!
-    var viewModel: InitialViewModelProtocol!
+    var mainCoordinator: InitialFlowCoordinator!
 
     // MARK: - UI Elements
 
     private lazy var startButton: PrimaryButton = {
         let button = PrimaryButton(title: "Start", state: .enabled)
-        button.addTarget(self, action: #selector(presentOnboardingScreen), for: .touchUpInside)
+        button.addTarget(self, action: #selector(startButtonDidTap), for: .touchUpInside)
         return button
     }()
 
     // MARK: - Actions
 
-    @objc private func presentOnboardingScreen() {
+    @objc private func startButtonDidTap() {
         startButton.buttonState = .disabled
-        let presenter = OnboardingPresenter()
-        let controller = UINavigationController(rootViewController: OnboardingController(presenter: presenter)) 
-        controller.modalPresentationStyle = .fullScreen
-        navigationController?.present(controller, animated: true, completion: nil)
-    }
-
-    // MARK: - Initializers
-
-    convenience init(viewModel: InitialViewModelProtocol) {
-        self.init()
-        self.viewModel = viewModel
+        mainCoordinator.presentOnboardingScreen()
     }
 
     // MARK: - Methods
