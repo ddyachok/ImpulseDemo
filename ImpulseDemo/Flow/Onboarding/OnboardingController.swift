@@ -151,13 +151,7 @@ extension OnboardingController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: OnboardingPageCollectionViewCell.reuseID,
-            for: indexPath
-        ) as? OnboardingPageCollectionViewCell  else {
-            return UICollectionViewCell()
-        }
-
+        let cell: OnboardingPageCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.setup(with: viewModel.getPage(for: indexPath))
         return cell
     }
