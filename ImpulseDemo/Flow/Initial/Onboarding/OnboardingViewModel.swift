@@ -27,14 +27,14 @@ final class OnboardingViewModel: OnboardingViewModelProtocol, DisposeBagProtocol
 
     // MARK: - Properties
 
-    var coordinator: OnboardingFlowCoordinator!
-    private let userDefaults = UserDefaults.standard
-
+    private var coordinator: OnboardingFlowCoordinator!
+    private let coreDataService = CoreDataService()
+    
     var shouldTimerScreenBeDisplayed: Bool {
-        // TODO: add ! at the begining
-        return userDefaults.bool(forKey: UserDefaultsKeys.timerScreenWasShown)
-
-        // TODO: change userDefaults to CoreData
+        guard let wasTimerShown = coreDataService.fetchTimerSettings(by: Constants.Timer.defaultId)?.timerWasShown else {
+            return true
+        }
+        return !wasTimerShown
     }
 
     var pages = BehaviorRelay<[OnboardingPage]>(value: [])

@@ -22,8 +22,9 @@ final class TimerViewModel: TimerViewModelProtocol, DisposeBagProtocol {
 
     // MARK: - Properties
 
-    var coordinator: OnboardingFlowCoordinator!
-    private let userDefaults = UserDefaults.standard
+    private var coordinator: OnboardingFlowCoordinator!
+    private let coreDataService = CoreDataService()
+
     private lazy var timer: Timer = {
         let timer = Timer.scheduledTimer(
             timeInterval: 1.0,
@@ -67,11 +68,18 @@ final class TimerViewModel: TimerViewModelProtocol, DisposeBagProtocol {
     private func stopTimer() {
         timer.invalidate()
         shouldTimerBeStopped.accept(true)
-        stopShowingTimerScreen()
     }
 
     func stopShowingTimerScreen() {
-        userDefaults.set(true, forKey: UserDefaultsKeys.timerScreenWasShown)
+        coreDataService.addTimerSettings(with: Constants.Timer.defaultId, timerWasShown: true)
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.coordinator.dismissPresentedViewController(animated: true)
+            },
+            onError: { [weak self] error in
+                self?.coordinator.present(alert: .unknownError)
+            })
+            .disposed(by: disposeBag)
     }
 
     // MARK: - Binding Methods
@@ -90,7 +98,7 @@ final class TimerViewModel: TimerViewModelProtocol, DisposeBagProtocol {
                 guard self.shouldTimerBeStopped.value else {
                     return
                 }
-                self.coordinator.dismissPresentedViewController(animated: true)
+                self.stopShowingTimerScreen()
             })
             .disposed(by: disposeBag)
     }

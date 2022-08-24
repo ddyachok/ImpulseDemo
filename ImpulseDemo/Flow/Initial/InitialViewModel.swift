@@ -17,9 +17,9 @@ final class InitialViewModel: InitialViewModelProtocol, DisposeBagProtocol {
 
     // MARK: - Properties
 
-    var coordinator: InitialFlowCoordinator!
+    private var coordinator: InitialFlowCoordinator!
 
-    var pages = BehaviorRelay<[OnboardingPage]>(value: OnboardingPage.allPages)
+    private let pages = BehaviorRelay<[OnboardingPage]>(value: OnboardingPage.allPages)
     var didTapStartButton = PublishSubject<Void>()
 
     // MARK: - Initializers

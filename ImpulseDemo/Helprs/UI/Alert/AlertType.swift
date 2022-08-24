@@ -14,6 +14,7 @@ protocol AlertProtocol: AnyObject {
 
 enum AlertType {
     case functionalityUnderDevelopment
+    case unknownError
 }
 
 extension AlertType {
@@ -21,6 +22,8 @@ extension AlertType {
         switch self {
         case .functionalityUnderDevelopment:
             return "Thank you for your interest"
+        case .unknownError:
+            return "Unknown Error"
         }
     }
     
@@ -28,6 +31,8 @@ extension AlertType {
         switch self {
         case .functionalityUnderDevelopment:
             return "The functionality is under development"
+        case .unknownError:
+            return "An unknown error. Please try again"
         }
     }
 }
