@@ -34,6 +34,11 @@ final class InitialFlowCoordinator: BaseCoordinator, FlowCoordinatorProtocol {
 
     func presentOnboardingScreen(pages: BehaviorRelay<[OnboardingPage]>) {
         let flowCoordinator = OnboardingFlowCoordinator(containerViewController)
+        flowCoordinator.finishFlow = { [weak self] in
+            self?.removeDependency(flowCoordinator)
+        }
+        addDependency(flowCoordinator)
+
         let controller = flowCoordinator.createFlow()
         controller.modalPresentationStyle = .fullScreen
         containerViewController?.present(controller, animated: true, completion: nil)

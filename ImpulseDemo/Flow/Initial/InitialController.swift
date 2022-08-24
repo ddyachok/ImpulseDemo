@@ -20,13 +20,6 @@ class InitialController: UIViewController, DisposeBagProtocol {
         return button
     }()
 
-//     MARK: - Actions
-//
-//    @objc private func startButtonDidTap() {
-//        startButton.buttonState = .disabled
-//        mainCoordinator.presentOnboardingScreen()
-//    }
-
     // MARK: - Initializers
 
     init(viewModel: InitialViewModelProtocol) {

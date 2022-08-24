@@ -58,27 +58,6 @@ class OnboardingController: UIViewController, DisposeBagProtocol {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Actions
-
-//    @objc private func showNextOnboardingScreen() {
-//        let nextIndex = min(pageControl.currentPage + 1, viewModel.pages.value.count - 1)
-//        let indexPath = IndexPath(item: nextIndex, section: 0)
-//        pageControl.currentPage = nextIndex
-//        pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-//    }
-
-//    @objc private func presentTimerScreen() {
-//        guard presenter.shouldTimerScreenBeDisplayed else {
-//            present(alert: .functionalityUnderDevelopment)
-//            return
-//        }
-//        let presenter = TimerPresenter()
-//        let timerController = TimerController(presenter: presenter)
-//        timerController.modalPresentationStyle = .overCurrentContext
-//        timerController.modalTransitionStyle = .crossDissolve
-//        navigationController?.present(timerController, animated: true, completion: nil)
-//    }
-
     // MARK: - Methods
 
     override func viewDidLoad() {
@@ -93,7 +72,7 @@ class OnboardingController: UIViewController, DisposeBagProtocol {
 
     private func setupBindings() {
         setupCurrentPageNumberBinding()
-        setupBottomButtonBinding()
+        setupDidReachLastPageBinding()
     }
 
     private func setupCurrentPageNumberBinding() {
@@ -106,12 +85,11 @@ class OnboardingController: UIViewController, DisposeBagProtocol {
             .disposed(by: disposeBag)
     }
 
-    private func setupBottomButtonBinding() {
+    private func setupDidReachLastPageBinding() {
         viewModel.didReachLastPage
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] didReach in
                 self?.bottomButton.setTitle(didReach ? "Continue" : "Next", for: .normal)
-//                self?.pagesCollectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: true)
             })
             .disposed(by: disposeBag)
     }
