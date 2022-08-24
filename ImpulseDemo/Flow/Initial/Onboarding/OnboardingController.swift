@@ -12,7 +12,7 @@ class OnboardingController: UIViewController, DisposeBagProtocol {
 
     // MARK: - Properties
 
-    private var viewModel: OnboardingViewModelProtocol
+    private var viewModel: (OnboardingViewModelProtocol & OnboardingViewModelMethodsProtocol)
 
     // MARK: - UI Elements
 
@@ -49,7 +49,7 @@ class OnboardingController: UIViewController, DisposeBagProtocol {
 
     // MARK: - Initializers
 
-    init(viewModel: OnboardingViewModelProtocol) {
+    init(viewModel: (OnboardingViewModelProtocol & OnboardingViewModelMethodsProtocol)) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

@@ -16,12 +16,11 @@ open class BaseCoordinator {
     // MARK: - Methods
 
     func addDependency(_ coordinator: FlowCoordinatorProtocol) {
-        for element in childCoordinators {
+        childCoordinators.forEach { element in
             if element === coordinator {
                 return
             }
         }
-
         childCoordinators.append(coordinator)
     }
 
@@ -30,11 +29,10 @@ open class BaseCoordinator {
             return
         }
 
-        for (index, element) in childCoordinators.enumerated() {
+        childCoordinators.enumerated().forEach { index, element in
             guard element === coordinator else {
                 return
             }
-
             childCoordinators.remove(at: index)
         }
     }

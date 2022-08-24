@@ -12,7 +12,7 @@ class TimerController: UIViewController, DisposeBagProtocol {
 
     // MARK: - Properties
 
-    private var viewModel: TimerViewModelProtocol
+    private var viewModel: (TimerViewModelProtocol & TimerViewModelMethodsProtocol)
 
     // MARK: - UI Elements
 
@@ -48,19 +48,12 @@ class TimerController: UIViewController, DisposeBagProtocol {
 
     private lazy var continueButton: PrimaryButton = {
         let button = PrimaryButton(title: "Continue", state: .disabled)
-//        button.addTarget(self, action: #selector(closeTimerScreen), for: .touchUpInside)
         return button
     }()
 
-//    // MARK: - Actions
-//
-//    @objc private func closeTimerScreen() {
-//        self.dismiss(animated: true, completion: nil)
-//    }
-
     // MARK: - Initializers
 
-    init(viewModel: TimerViewModelProtocol) {
+    init(viewModel: (TimerViewModelProtocol & TimerViewModelMethodsProtocol)) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

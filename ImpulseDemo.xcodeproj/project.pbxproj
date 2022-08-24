@@ -320,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				5F48C65028A4444300F316E1 /* Timer */,
+				5FFC97C228B6B31E005209B8 /* Models */,
 				5F48C63928A3F47300F316E1 /* UI Components */,
 				5F48C63128A2F48A00F316E1 /* OnboardingController.swift */,
 				5F34498828B39F3A00E6B637 /* OnboardingViewModel.swift */,
@@ -332,7 +333,6 @@
 			isa = PBXGroup;
 			children = (
 				5F48C63C28A3F51500F316E1 /* UICollectionView */,
-				5F48C63A28A3F4ED00F316E1 /* OnboardingPage.swift */,
 			);
 			path = "UI Components";
 			sourceTree = "<group>";
@@ -443,6 +443,14 @@
 			children = (
 				5FFC97BE28B6AECB005209B8 /* TimerSettings+CoreDataClass.swift */,
 				5FFC97BF28B6AECB005209B8 /* TimerSettings+CoreDataProperties.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5FFC97C228B6B31E005209B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5F48C63A28A3F4ED00F316E1 /* OnboardingPage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

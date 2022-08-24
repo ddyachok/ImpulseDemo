@@ -30,8 +30,8 @@ final class OnboardingFlowCoordinator: BaseCoordinator, FlowCoordinatorProtocol 
         let controller = OnboardingController(viewModel: viewModel)
         let navigationViewController = UINavigationController(rootViewController: controller)
         containerViewController = navigationViewController
-        return navigationViewController
 
+        return navigationViewController
     }
 
     func presentTimerScreen() {

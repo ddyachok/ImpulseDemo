@@ -28,6 +28,7 @@ final class InitialFlowCoordinator: BaseCoordinator, FlowCoordinatorProtocol {
         let initialController = InitialController(viewModel: viewModel)
         let navigationViewController = UINavigationController(rootViewController: initialController)
         containerViewController = navigationViewController
+        
         return navigationViewController
 
     }

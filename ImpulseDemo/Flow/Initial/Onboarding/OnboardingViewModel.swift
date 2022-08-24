@@ -16,13 +16,14 @@ protocol OnboardingViewModelProtocol: AnyObject {
 
     var pageDidChange: PublishRelay<Int> { get set }
     var pageControlValueDidChange: PublishRelay<Int> { get set }
-
     var didTapBottomButton: PublishSubject<Void> { get }
+}
 
+protocol OnboardingViewModelMethodsProtocol: AnyObject {
     func getPage(for index: IndexPath) -> OnboardingPage
 }
 
-final class OnboardingViewModel: OnboardingViewModelProtocol, DisposeBagProtocol {
+final class OnboardingViewModel: OnboardingViewModelProtocol, OnboardingViewModelMethodsProtocol, DisposeBagProtocol {
 
     // MARK: - Properties
 
@@ -30,10 +31,10 @@ final class OnboardingViewModel: OnboardingViewModelProtocol, DisposeBagProtocol
     private let coreDataService = CoreDataService()
     
     var shouldTimerScreenBeDisplayed: Bool {
-        guard let wasTimerShown = coreDataService.fetchTimerSettings(by: Constants.Timer.defaultId)?.timerWasShown else {
+        guard let timerSettings = coreDataService.fetchTimerSettings(by: Constants.Timer.defaultId) else {
             return true
         }
-        return !wasTimerShown
+        return !timerSettings.timerWasShown
     }
 
     var pages = BehaviorRelay<[OnboardingPage]>(value: [])
@@ -42,7 +43,6 @@ final class OnboardingViewModel: OnboardingViewModelProtocol, DisposeBagProtocol
 
     var pageDidChange = PublishRelay<Int>()
     var pageControlValueDidChange = PublishRelay<Int>()
-
     var didTapBottomButton = PublishSubject<Void>()
 
     // MARK: - Initializers
@@ -119,6 +119,5 @@ final class OnboardingViewModel: OnboardingViewModelProtocol, DisposeBagProtocol
                 self?.currentPageNumber.accept($0)
             })
             .disposed(by: disposeBag)
-
     }
 }

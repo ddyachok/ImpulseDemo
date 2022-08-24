@@ -14,11 +14,13 @@ protocol TimerViewModelProtocol: AnyObject {
     var shouldTimerBeStopped: BehaviorRelay<Bool> { get set }
 
     var didTapContinueButton: PublishSubject<Void> { get }
+}
 
+protocol TimerViewModelMethodsProtocol {
     func startTimer()
 }
 
-final class TimerViewModel: TimerViewModelProtocol, DisposeBagProtocol {
+final class TimerViewModel: TimerViewModelProtocol, TimerViewModelMethodsProtocol, DisposeBagProtocol {
 
     // MARK: - Properties
 
@@ -75,8 +77,7 @@ final class TimerViewModel: TimerViewModelProtocol, DisposeBagProtocol {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 self?.coordinator.dismissPresentedViewController(animated: true)
-            },
-            onError: { [weak self] error in
+            }, onError: { [weak self] error in
                 self?.coordinator.present(alert: .unknownError)
             })
             .disposed(by: disposeBag)
