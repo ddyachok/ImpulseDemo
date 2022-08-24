@@ -7,25 +7,35 @@
 
 import UIKit
 
-class InitialController: UIViewController {
+class InitialController: UIViewController, DisposeBagProtocol {
 
     // MARK: - Properties
 
-    var mainCoordinator: InitialFlowCoordinator!
+    private var viewModel: InitialViewModelProtocol
 
     // MARK: - UI Elements
 
     private lazy var startButton: PrimaryButton = {
         let button = PrimaryButton(title: "Start", state: .enabled)
-        button.addTarget(self, action: #selector(startButtonDidTap), for: .touchUpInside)
         return button
     }()
 
-    // MARK: - Actions
+//     MARK: - Actions
+//
+//    @objc private func startButtonDidTap() {
+//        startButton.buttonState = .disabled
+//        mainCoordinator.presentOnboardingScreen()
+//    }
 
-    @objc private func startButtonDidTap() {
-        startButton.buttonState = .disabled
-        mainCoordinator.presentOnboardingScreen()
+    // MARK: - Initializers
+
+    init(viewModel: InitialViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Methods
@@ -34,6 +44,19 @@ class InitialController: UIViewController {
         super.viewDidLoad()
         configureView()
         configureUIElements()
+        bindToViewModel()
+    }
+
+    // MARK: - Binding Methods
+
+    private func bindToViewModel() {
+        bindStartButtonToViewModel()
+    }
+
+    private func bindStartButtonToViewModel() {
+        startButton.rx.tap
+            .bind(to: viewModel.didTapStartButton)
+            .disposed(by: disposeBag)
     }
 
     // MARK: - Configuration Methods

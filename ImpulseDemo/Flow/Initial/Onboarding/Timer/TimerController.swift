@@ -16,7 +16,7 @@ class TimerController: UIViewController, TimerControllerProtocol {
 
     // MARK: - Properties
 
-    private var presenter: TimerPresenterProtocol
+    private var viewModel: TimerViewModelProtocol
 
     // MARK: - UI Elements
 
@@ -64,8 +64,8 @@ class TimerController: UIViewController, TimerControllerProtocol {
 
     // MARK: - Initializers
 
-    init(presenter: TimerPresenterProtocol) {
-        self.presenter = presenter
+    init(viewModel: TimerViewModelProtocol) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -77,7 +77,7 @@ class TimerController: UIViewController, TimerControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configurePresenter()
+//        configurePresenter()
         configureView()
         configureUIElements()
     }
@@ -95,12 +95,12 @@ class TimerController: UIViewController, TimerControllerProtocol {
 
     // MARK: - Configuration Methods
 
-    private func configurePresenter() {
-        presenter.controller = self
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            self.presenter.startTimer()
-        }
-    }
+//    private func configurePresenter() {
+//        presenter.controller = self
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+//            self.presenter.startTimer()
+//        }
+//    }
 
     private func configureView() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)

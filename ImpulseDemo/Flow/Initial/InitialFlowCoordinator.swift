@@ -24,16 +24,18 @@ final class InitialFlowCoordinator: BaseCoordinator, FlowCoordinatorProtocol {
     }
 
     func createFlow() -> UIViewController {
-        let initialController = InitialController()
+        let viewModel = InitialViewModel(coordinator: self)
+        let initialController = InitialController(viewModel: viewModel)
         let navigationViewController = UINavigationController(rootViewController: initialController)
         containerViewController = navigationViewController
-        initialController.mainCoordinator = self
         return navigationViewController
 
     }
 
-    func presentOnboardingScreen() {
-        let onboardingCoordinator = OnboardingFlowCoordinator(containerViewController)
-        navigationController?.present(onboardingCoordinator.createFlow(), animated: true, completion: nil)
+    func presentOnboardingScreen(pages: BehaviorRelay<[OnboardingPage]>) {
+        let flowCoordinator = OnboardingFlowCoordinator(containerViewController)
+        let controller = flowCoordinator.createFlow()
+        controller.modalPresentationStyle = .fullScreen
+        containerViewController?.present(controller, animated: true, completion: nil)
     }
 }

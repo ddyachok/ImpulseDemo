@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import RxSwift
 
-class OnboardingController: UIViewController {
+class OnboardingController: UIViewController, DisposeBagProtocol {
 
     // MARK: - Properties
 
@@ -17,8 +18,6 @@ class OnboardingController: UIViewController {
 
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
-        pageControl.isUserInteractionEnabled = false
-        pageControl.currentPage = 0
         pageControl.numberOfPages = viewModel.pages.value.count
         pageControl.currentPageIndicatorTintColor = UIColor(.contentPrimary)
         pageControl.pageIndicatorTintColor = UIColor(.pageControlTint)
@@ -34,7 +33,6 @@ class OnboardingController: UIViewController {
         layout.minimumLineSpacing = 0
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(cell: OnboardingPageCollectionViewCell.self)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,14 +60,14 @@ class OnboardingController: UIViewController {
 
     // MARK: - Actions
 
-    @objc private func showNextOnboardingScreen() {
-        let nextIndex = min(pageControl.currentPage + 1, viewModel.pages.value.count - 1)
-        let indexPath = IndexPath(item: nextIndex, section: 0)
-        pageControl.currentPage = nextIndex
-        pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-    }
+//    @objc private func showNextOnboardingScreen() {
+//        let nextIndex = min(pageControl.currentPage + 1, viewModel.pages.value.count - 1)
+//        let indexPath = IndexPath(item: nextIndex, section: 0)
+//        pageControl.currentPage = nextIndex
+//        pagesCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//    }
 
-    @objc private func presentTimerScreen() {
+//    @objc private func presentTimerScreen() {
 //        guard presenter.shouldTimerScreenBeDisplayed else {
 //            present(alert: .functionalityUnderDevelopment)
 //            return
@@ -79,7 +77,7 @@ class OnboardingController: UIViewController {
 //        timerController.modalPresentationStyle = .overCurrentContext
 //        timerController.modalTransitionStyle = .crossDissolve
 //        navigationController?.present(timerController, animated: true, completion: nil)
-    }
+//    }
 
     // MARK: - Methods
 
@@ -87,6 +85,80 @@ class OnboardingController: UIViewController {
         super.viewDidLoad()
         configureView()
         configureUIElements()
+        bindToViewModel()
+        setupBindings()
+    }
+
+    // MARK: - Binding Methods
+
+    private func setupBindings() {
+        setupCurrentPageNumberBinding()
+        setupBottomButtonBinding()
+    }
+
+    private func setupCurrentPageNumberBinding() {
+        viewModel.currentPageNumber
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] page in
+                self?.pageControl.currentPage = page
+                self?.pagesCollectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: true)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func setupBottomButtonBinding() {
+        viewModel.didReachLastPage
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] didReach in
+                self?.bottomButton.setTitle(didReach ? "Continue" : "Next", for: .normal)
+//                self?.pagesCollectionView.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: true)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func bindToViewModel() {
+        bindBottomButtonToViewModel()
+        bindPageControlToViewModel()
+        bindPagesCollectionViewToViewModel()
+    }
+
+    private func bindBottomButtonToViewModel() {
+        bottomButton.rx.tap
+            .bind(to: viewModel.didTapBottomButton)
+            .disposed(by: disposeBag)
+    }
+
+    private func bindPageControlToViewModel() {
+        pageControl.rx.controlEvent(.valueChanged)
+            .map({ [weak self] in
+                guard let currentPage = self?.pageControl.currentPage else {
+                    return 0
+                }
+                return currentPage
+            })
+            .bind(to: viewModel.pageControlValueDidChange)
+            .disposed(by: disposeBag)
+    }
+
+    private func bindPagesCollectionViewToViewModel() {
+        pagesCollectionView.rx.willEndDragging
+            .map({ [weak self] _, targetContentOffset in
+                let x = targetContentOffset.pointee.x
+                let pageNumber = Int(x / (self?.view.frame.width ?? 1.0))
+                return pageNumber
+            })
+            .bind(to: viewModel.pageDidChange)
+            .disposed(by: disposeBag)
+
+        pagesCollectionView.rx.didScroll
+            .map { [weak self] in
+                guard let self = self else {
+                    return false
+                }
+                return self.pagesCollectionView.didReachLastPage(self.pagesCollectionView, view: self.view)
+            }
+            .bind(to: viewModel.didReachLastPage)
+            .disposed(by: disposeBag)
     }
 
     // MARK: - Configuration Methods
@@ -108,20 +180,6 @@ class OnboardingController: UIViewController {
         bottomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
         bottomButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         bottomButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        bottomButton.addTarget(self, action: #selector(showNextOnboardingScreen), for: .touchUpInside)
-    }
-
-    private func configureBottomButton(_ didReachLastPage: Bool) {
-        guard didReachLastPage else {
-            bottomButton.setTitle("Next", for: .normal)
-            bottomButton.removeTarget(self, action: #selector(presentTimerScreen), for: .touchUpInside)
-            bottomButton.addTarget(self, action: #selector(showNextOnboardingScreen), for: .touchUpInside)
-            return
-        }
-
-        bottomButton.setTitle("Continue", for: .normal)
-        bottomButton.removeTarget(self, action: #selector(showNextOnboardingScreen), for: .touchUpInside)
-        bottomButton.addTarget(self, action: #selector(presentTimerScreen), for: .touchUpInside)
     }
 
     private func configurePageControl() {
@@ -154,17 +212,5 @@ extension OnboardingController: UICollectionViewDelegate, UICollectionViewDataSo
         let cell: OnboardingPageCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
         cell.setup(with: viewModel.getPage(for: indexPath))
         return cell
-    }
-
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let x = targetContentOffset.pointee.x
-        pageControl.currentPage = Int(x / view.frame.width)
-    }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetX = scrollView.contentOffset.x
-        let collectionViewWidth = pagesCollectionView.contentSize.width - scrollView.frame.size.width
-        let didReachLastPage = offsetX > (collectionViewWidth - view.frame.width / 1.6)
-        configureBottomButton(didReachLastPage)
     }
 }

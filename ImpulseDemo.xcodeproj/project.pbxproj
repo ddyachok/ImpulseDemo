@@ -14,7 +14,6 @@
 		5F34497828B2BBF000E6B637 /* FlowCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34497728B2BBF000E6B637 /* FlowCoordinatorProtocol.swift */; };
 		5F34497B28B2BDA800E6B637 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34497A28B2BDA800E6B637 /* ApplicationCoordinator.swift */; };
 		5F34498528B2C4E400E6B637 /* DisposeBagProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34498428B2C4E400E6B637 /* DisposeBagProtocol.swift */; };
-		5F34498728B39EF500E6B637 /* OnboardingFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34498628B39EF500E6B637 /* OnboardingFlowCoordinator.swift */; };
 		5F34498928B39F3A00E6B637 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F34498828B39F3A00E6B637 /* OnboardingViewModel.swift */; };
 		5F48C60128A2DE6700F316E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C60028A2DE6700F316E1 /* AppDelegate.swift */; };
 		5F48C60328A2DE6700F316E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F48C60228A2DE6700F316E1 /* SceneDelegate.swift */; };
@@ -48,6 +47,11 @@
 		5FD883CA28A6B103006A26D5 /* UIColor+Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD883C928A6B103006A26D5 /* UIColor+Identifier.swift */; };
 		5FD883CC28A6B11F006A26D5 /* UIImage+Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD883CB28A6B11F006A26D5 /* UIImage+Asset.swift */; };
 		5FD883CE28A6B132006A26D5 /* UIImageView+Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD883CD28A6B131006A26D5 /* UIImageView+Asset.swift */; };
+		5FFC97A128B62189005209B8 /* UIScrollView+LastPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC97A028B62189005209B8 /* UIScrollView+LastPage.swift */; };
+		5FFC97A328B64E8D005209B8 /* Int+Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC97A228B64E8D005209B8 /* Int+Range.swift */; };
+		5FFC97A728B67E0B005209B8 /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC97A628B67E0B005209B8 /* TimerViewModel.swift */; };
+		5FFC97A928B68256005209B8 /* InitialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC97A828B68256005209B8 /* InitialViewModel.swift */; };
+		5FFC97AB28B6871C005209B8 /* OnboardingFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFC97AA28B6871C005209B8 /* OnboardingFlowCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +60,6 @@
 		5F34497728B2BBF000E6B637 /* FlowCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		5F34497A28B2BDA800E6B637 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		5F34498428B2C4E400E6B637 /* DisposeBagProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBagProtocol.swift; sourceTree = "<group>"; };
-		5F34498628B39EF500E6B637 /* OnboardingFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowCoordinator.swift; sourceTree = "<group>"; };
 		5F34498828B39F3A00E6B637 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		5F48C5FD28A2DE6700F316E1 /* ImpulseDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImpulseDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F48C60028A2DE6700F316E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +95,11 @@
 		5FD883C928A6B103006A26D5 /* UIColor+Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Identifier.swift"; sourceTree = "<group>"; };
 		5FD883CB28A6B11F006A26D5 /* UIImage+Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Asset.swift"; sourceTree = "<group>"; };
 		5FD883CD28A6B131006A26D5 /* UIImageView+Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Asset.swift"; sourceTree = "<group>"; };
+		5FFC97A028B62189005209B8 /* UIScrollView+LastPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+LastPage.swift"; sourceTree = "<group>"; };
+		5FFC97A228B64E8D005209B8 /* Int+Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Range.swift"; sourceTree = "<group>"; };
+		5FFC97A628B67E0B005209B8 /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
+		5FFC97A828B68256005209B8 /* InitialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewModel.swift; sourceTree = "<group>"; };
+		5FFC97AA28B6871C005209B8 /* OnboardingFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +136,9 @@
 		5F34497C28B2C3BE00E6B637 /* Initial */ = {
 			isa = PBXGroup;
 			children = (
+				5F48C63028A2F47D00F316E1 /* Onboarding */,
 				5F48C60428A2DE6700F316E1 /* InitialController.swift */,
+				5FFC97A828B68256005209B8 /* InitialViewModel.swift */,
 				5F34497228B2BB5500E6B637 /* InitialFlowCoordinator.swift */,
 			);
 			path = Initial;
@@ -193,8 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				5F34497C28B2C3BE00E6B637 /* Initial */,
-				5F48C63028A2F47D00F316E1 /* Onboarding */,
-				5F48C65028A4444300F316E1 /* Timer */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -304,10 +312,11 @@
 		5F48C63028A2F47D00F316E1 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				5F48C65028A4444300F316E1 /* Timer */,
 				5F48C63928A3F47300F316E1 /* UI Components */,
 				5F48C63128A2F48A00F316E1 /* OnboardingController.swift */,
 				5F34498828B39F3A00E6B637 /* OnboardingViewModel.swift */,
-				5F34498628B39EF500E6B637 /* OnboardingFlowCoordinator.swift */,
+				5FFC97AA28B6871C005209B8 /* OnboardingFlowCoordinator.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -344,6 +353,7 @@
 				5F48C64328A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift */,
 				5F48C64728A3FC2700F316E1 /* UICollectionView+ReusableCell.swift */,
 				5F97C9F028A58FCF00F130F6 /* UIViewController+Alert.swift */,
+				5FFC97A028B62189005209B8 /* UIScrollView+LastPage.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -354,6 +364,7 @@
 				5F48C64A28A3FDCC00F316E1 /* IndexPath+Range.swift */,
 				5F97C9E428A57C2500F130F6 /* Float+Time.swift */,
 				5FD883C528A678D1006A26D5 /* Float+Calculations.swift */,
+				5FFC97A228B64E8D005209B8 /* Int+Range.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -362,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				5F48C65128A4445100F316E1 /* TimerController.swift */,
+				5FFC97A628B67E0B005209B8 /* TimerViewModel.swift */,
 				5F97C9EA28A58C3D00F130F6 /* TimerPresenter.swift */,
 			);
 			path = Timer;
@@ -503,6 +515,7 @@
 				5F48C62828A2F10500F316E1 /* UIFont+Type.swift in Sources */,
 				5F97C9E528A57C2500F130F6 /* Float+Time.swift in Sources */,
 				5F48C62228A2EB3F00F316E1 /* PrimaryButton.swift in Sources */,
+				5FFC97A128B62189005209B8 /* UIScrollView+LastPage.swift in Sources */,
 				5F48C64428A3FBF800F316E1 /* UICollectionViewCell+ReuseID.swift in Sources */,
 				5F48C60528A2DE6700F316E1 /* InitialController.swift in Sources */,
 				5F48C62A28A2F12600F316E1 /* FontType.swift in Sources */,
@@ -517,15 +530,18 @@
 				5F48C65228A4445100F316E1 /* TimerController.swift in Sources */,
 				5F97C9F128A58FCF00F130F6 /* UIViewController+Alert.swift in Sources */,
 				5FD883C628A678D2006A26D5 /* Float+Calculations.swift in Sources */,
+				5FFC97AB28B6871C005209B8 /* OnboardingFlowCoordinator.swift in Sources */,
 				5F97C9E928A58AAE00F130F6 /* UserDefaultsKeys.swift in Sources */,
 				5F48C61A28A2E55000F316E1 /* ColorIdentifier.swift in Sources */,
 				5F48C64828A3FC2700F316E1 /* UICollectionView+ReusableCell.swift in Sources */,
 				5F48C60128A2DE6700F316E1 /* AppDelegate.swift in Sources */,
+				5FFC97A328B64E8D005209B8 /* Int+Range.swift in Sources */,
 				5F48C63E28A3F53000F316E1 /* OnboardingPageCollectionViewCell.swift in Sources */,
-				5F34498728B39EF500E6B637 /* OnboardingFlowCoordinator.swift in Sources */,
 				5F48C60328A2DE6700F316E1 /* SceneDelegate.swift in Sources */,
 				5F97C9EB28A58C3D00F130F6 /* TimerPresenter.swift in Sources */,
 				5F48C64B28A3FDCC00F316E1 /* IndexPath+Range.swift in Sources */,
+				5FFC97A728B67E0B005209B8 /* TimerViewModel.swift in Sources */,
+				5FFC97A928B68256005209B8 /* InitialViewModel.swift in Sources */,
 				5F48C63228A2F48A00F316E1 /* OnboardingController.swift in Sources */,
 				5F34497328B2BB5500E6B637 /* InitialFlowCoordinator.swift in Sources */,
 				5F48C61F28A2E8D600F316E1 /* ImageAsset.swift in Sources */,
