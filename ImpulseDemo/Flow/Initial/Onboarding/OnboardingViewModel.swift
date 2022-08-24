@@ -12,7 +12,6 @@ import RxCocoa
 protocol OnboardingViewModelProtocol: AnyObject {
     var pages: BehaviorRelay<[OnboardingPage]> { get }
     var didReachLastPage: BehaviorRelay<Bool> { get }
-    var shouldTimerScreenBeDisplayed: BehaviorRelay<Bool> { get }
     var currentPageNumber: BehaviorRelay<Int> { get set }
 
     var pageDidChange: PublishRelay<Int> { get set }
@@ -31,9 +30,15 @@ final class OnboardingViewModel: OnboardingViewModelProtocol, DisposeBagProtocol
     var coordinator: OnboardingFlowCoordinator!
     private let userDefaults = UserDefaults.standard
 
+    var shouldTimerScreenBeDisplayed: Bool {
+        // TODO: add ! at the begining
+        return userDefaults.bool(forKey: UserDefaultsKeys.timerScreenWasShown)
+
+        // TODO: change userDefaults to CoreData
+    }
+
     var pages = BehaviorRelay<[OnboardingPage]>(value: [])
     var didReachLastPage = BehaviorRelay<Bool>(value: false)
-    var shouldTimerScreenBeDisplayed = BehaviorRelay<Bool>(value: false)
     var currentPageNumber = BehaviorRelay<Int>(value: 0)
 
     var pageDidChange = PublishRelay<Int>()
@@ -54,15 +59,23 @@ final class OnboardingViewModel: OnboardingViewModelProtocol, DisposeBagProtocol
     // MARK: - Methods
 
     private func addActionToBottomButton() {
-        guard currentPageNumber.value.isInRange(of: pages.value.count - 1) else {
-            coordinator.presentTimerScreen()
+        guard currentPageNumber.value.isInRange(of: pages.value.count) else {
+            return
+        }
+
+        guard !didReachLastPage.value else {
+            handleContinueButton()
             return
         }
         currentPageNumber.accept((currentPageNumber.value) + 1)
     }
 
-    private func checkTimerDisplayState() {
-        shouldTimerScreenBeDisplayed.accept(!userDefaults.bool(forKey: UserDefaultsKeys.timerScreenWasShown))
+    func handleContinueButton() {
+        guard shouldTimerScreenBeDisplayed else {
+            coordinator.present(alert: .functionalityUnderDevelopment)
+            return
+        }
+        coordinator.presentTimerScreen()
     }
 
     func getPage(for index: IndexPath) -> OnboardingPage {
@@ -78,7 +91,6 @@ final class OnboardingViewModel: OnboardingViewModelProtocol, DisposeBagProtocol
         bindDidTapBottomButton()
         bindPageDidChange()
         bindPageControlValueDidChange()
-//        bindDidReachLastPage()
     }
 
     private func bindDidTapBottomButton() {

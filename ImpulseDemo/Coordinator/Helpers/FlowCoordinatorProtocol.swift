@@ -59,3 +59,10 @@ extension FlowCoordinatorProtocol {
     }
 }
 
+// MARK: - Alert
+
+extension FlowCoordinatorProtocol {
+    func present(alert type: AlertType) {
+        navigationController?.present(alert: type)
+    }
+}
