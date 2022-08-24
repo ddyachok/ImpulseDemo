@@ -18,7 +18,6 @@ protocol OnboardingViewModelProtocol: AnyObject {
     var pageControlValueDidChange: PublishRelay<Int> { get set }
 
     var didTapBottomButton: PublishSubject<Void> { get }
-    var didScrollPagesCollectionView: PublishSubject<Void> { get }
 
     func getPage(for index: IndexPath) -> OnboardingPage
 }
@@ -45,7 +44,6 @@ final class OnboardingViewModel: OnboardingViewModelProtocol, DisposeBagProtocol
     var pageControlValueDidChange = PublishRelay<Int>()
 
     var didTapBottomButton = PublishSubject<Void>()
-    var didScrollPagesCollectionView = PublishSubject<Void>()
 
     // MARK: - Initializers
 
