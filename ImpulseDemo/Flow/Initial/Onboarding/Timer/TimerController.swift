@@ -6,13 +6,9 @@
 //
 
 import UIKit
+import RxSwift
 
-protocol TimerControllerProtocol {
-    func updateTimer(with timeText: String, progressValue: Float)
-    func setContinueButton(state: ButtonState)
-}
-
-class TimerController: UIViewController, TimerControllerProtocol {
+class TimerController: UIViewController, DisposeBagProtocol {
 
     // MARK: - Properties
 
@@ -52,15 +48,15 @@ class TimerController: UIViewController, TimerControllerProtocol {
 
     private lazy var continueButton: PrimaryButton = {
         let button = PrimaryButton(title: "Continue", state: .disabled)
-        button.addTarget(self, action: #selector(closeTimerScreen), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(closeTimerScreen), for: .touchUpInside)
         return button
     }()
 
-    // MARK: - Actions
-
-    @objc private func closeTimerScreen() {
-        self.dismiss(animated: true, completion: nil)
-    }
+//    // MARK: - Actions
+//
+//    @objc private func closeTimerScreen() {
+//        self.dismiss(animated: true, completion: nil)
+//    }
 
     // MARK: - Initializers
 
@@ -77,30 +73,67 @@ class TimerController: UIViewController, TimerControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        configurePresenter()
         configureView()
         configureUIElements()
+        configureViewModel()
+        setupBindings()
+        bindToViewModel()
     }
 
-    func updateTimer(with timeText: String, progressValue: Float) {
-        timeLabel.text = timeText
-        UIView.animate(withDuration: 0.2) {
-            self.timeProgressView.setProgress(progressValue, animated: true)
+    private func updateProgress(with totalTime: Float) {
+        DispatchQueue.main.async { [weak self] in
+            UIView.animate(withDuration: 0.2) {
+                self?.timeProgressView.setProgress((totalTime / Constants.Timer.numberOfSeondsInMinute), animated: true)
+            }
         }
     }
 
-    func setContinueButton(state: ButtonState) {
-        continueButton.buttonState = state
+    // MARK: - Binding Methods
+
+    private func setupBindings() {
+        setupTotalTimeBinding()
+        setupShouldTimerBeStoppedBinding()
+    }
+
+    private func setupTotalTimeBinding() {
+        viewModel.totalTime
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else {
+                    return
+                }
+                self.timeLabel.text = $0.convertToTime()
+                self.updateProgress(with: $0)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func setupShouldTimerBeStoppedBinding() {
+        viewModel.shouldTimerBeStopped
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] timerStopped in
+                self?.continueButton.buttonState = timerStopped ? .enabled : .disabled
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func bindToViewModel() {
+        bindContinueButtonToViewModel()
+    }
+
+    private func bindContinueButtonToViewModel() {
+        continueButton.rx.tap
+            .bind(to: viewModel.didTapContinueButton)
+            .disposed(by: disposeBag)
     }
 
     // MARK: - Configuration Methods
 
-//    private func configurePresenter() {
-//        presenter.controller = self
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-//            self.presenter.startTimer()
-//        }
-//    }
+    private func configureViewModel() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            self.viewModel.startTimer()
+        }
+    }
 
     private func configureView() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)

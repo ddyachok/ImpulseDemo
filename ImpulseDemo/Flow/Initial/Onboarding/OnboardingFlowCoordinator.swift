@@ -35,7 +35,7 @@ final class OnboardingFlowCoordinator: BaseCoordinator, FlowCoordinatorProtocol 
     }
 
     func presentTimerScreen() {
-        let viewModel = TimerViewModel(coordinator: self)
+        let viewModel = TimerViewModel(coordinator: self, pages: pages)
         let controller = TimerController(viewModel: viewModel)
         controller.modalPresentationStyle = .overCurrentContext
         controller.modalTransitionStyle = .crossDissolve
